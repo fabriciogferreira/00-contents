@@ -17,10 +17,7 @@ PT-BR: Repositório que você pode entender como eu organizo e estruturo meu rep
 	    <dd></dd>
     </dl>
   <li>Repositório</li>
-    <dl>
-	    <dt></dt>
-	    <dd></dd>
-    </dl>
+   
   <li>Pasta</li>
     <dl>
 	    <dt></dt>
@@ -29,7 +26,30 @@ PT-BR: Repositório que você pode entender como eu organizo e estruturo meu rep
   <li>Arquivos</li>
 </ol>
 
-## Estrutura
+## Organização
+<ol>
+	<li>Repositório</li>
+	<dl>
+		<dt>Identificador</dt>
+		<dd>Para fazer a identificação de cada repositório, é colocado um código de dois digitos que vai de 00 a 99, ou seja, você pode ter até 100 repositróios. Para o meu caso, é o suficiente, caso você precise, aumente ou diminua o intervalo para caber mais ou menos diretórios.</dd>
+		<dt>Conteúdo</dt>
+		<dd>Além do identificador, tem um nome que representa o conteúdo do repositório, como por exemplo, o repositório "10-Pessoal", que é identificado pelo 10 e pelo nome, ele guarda arquivos pessoais.</dd>
+	</dl>
+	<li>Pastas</li>
+	<dt>Identificador</dt>
+	<dd>A mesma coisa do repositório vale para as pastas. Com a adição de que na última pasta (a que contempla o arquivo ou projeto) ela tem um intervalo de 0000 a 9999, pois, elas são quem guarda os exercícios, que provavelmente, você vai fazer mais de cem e menos de 10001.</dd>
+	<dd>"Ah, mas porque colocar o código que identifica os exercícios na pasta? Eu poderia colocar o nome direto no arquivo", sim poderia, mas aí sugiriam alguns problemas, o primeiro seria de que se você tivesse mais de um arquivo para um mesmo exercício, teria que o mesmo nome nos três, eles também não ficariam facilmente acessíveis e fácil de baixar.</dd>
+	<dd>"Ah, mas eu poderia colocar o nome direto quando é um arquivo e colocar o nome na pastas quando mais de um arquivo", aí que entra o segundo problema, de acordo com os testes que eu fiz, a organização de pastas e arquivos do Windows, primeiro é feita por Tipo e Depois por nome, o que iria desorganizar seus exercícios, além de que, ficaria feio. </dd>
+	<dt>Subtema</dt>
+	<dd>Novamente</dd>
+	<dt>Identificador</dt>
+	<dd></dd>
+</ol>
+<dl>
+	<dt></dt>
+	<dd></dd>
+</dl>
+
 ### Pastas
 ### Arquivos
 
