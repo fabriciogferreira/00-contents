@@ -295,6 +295,17 @@ Veja a baixo minha lista de exercícios e projetos
       <td>Alexandre Aquiles e Rodrigo Ferreira</td> 
       <td>978-8566250534</td> 
     </tr>
+     <tr>
+      <td>15</td> 
+      <td>01.01.00.00.0001</td> 
+      <td>Histórico, Gitignore e Estados</td> 
+      <td>Git and GitHub</td> 
+      <td>O que é e como usar o gitignore, estados, git add., -a, -n, --online, --stat e q</td> 
+      <td>Livro</td> 
+      <td>Controlando versões com Git e GitHub</td> 
+      <td>Alexandre Aquiles e Rodrigo Ferreira</td> 
+      <td>978-8566250534</td> 
+    </tr>
     <tr>
       <td>2</td> 
       <td>01.01.01.00.00.0000</td> 
@@ -433,6 +444,28 @@ Veja a baixo minha lista de exercícios e projetos
       <td>Vídeos</td> 
       <td>HTML5</td> 
       <td>Como colocar vídeos no seu site</td> 
+      <td>Site</td> 
+      <td>Curso HTML5 e CSS3: módulo 1 de 5 [40 HORAS]</td> 
+      <td>Gustavo Guanabara</td> 
+	<td><a href="https://www.cursoemvideo.com/" target="_blank" rel="external">Link</a></td> 
+    </tr>
+    <tr>
+      <td>15</td> 
+      <td>01.01.01.00.00.0000</td> 
+      <td></td> 
+      <td>HTML5</td> 
+      <td></td> 
+      <td>Site</td> 
+      <td>Curso HTML5 e CSS3: módulo 1 de 5 [40 HORAS]</td> 
+      <td>Gustavo Guanabara</td> 
+	<td><a href="https://www.cursoemvideo.com/" target="_blank" rel="external">Link</a></td> 
+    </tr>
+    <tr>
+      <td>10</td> 
+      <td>01.01.01.00.00.0000</td> 
+      <td></td> 
+      <td>HTML5</td> 
+      <td></td> 
       <td>Site</td> 
       <td>Curso HTML5 e CSS3: módulo 1 de 5 [40 HORAS]</td> 
       <td>Gustavo Guanabara</td> 
