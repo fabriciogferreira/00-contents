@@ -1,0 +1,143 @@
+< - Símbolo de abertura das tag's
+> - Símbolo de feachamento das tag's
+/ - Símbolo que indica uma tag de fechamento
+<> - O que estiver dentro dos símbolo indica qual tag é, por exemplo, a tag de hierarquias (<h1></h1>)
+<> - Tag de abertura
+</> - Tag de fechamento
+<></> - O que estivevr dentro das tag's de abertura e fechamento é o conteúdo
+<h1 parâmetro="valor"> - A tag de abertura pode ter parâmetros e valores
+  parâmetro - São caracteristicas que podem ser mudada de acordo com o valor recebido
+  = - Símbolo de atribuição do valor
+  "" - Símbolo que limita quais valores vão ser passados
+  "" - O que estiver dentro desses símbolos são os valorers
+
+Diferente das versões anteriores do HTML, o HTML5 foca em semântica ao invés da forma (tamanho, cor, formato e etc) do conteúdo.
+
+HTML: Semântica
+CSS: Estilo
+JavaScript: Animação
+
+<h1> a </h6>: titúlos, h1 o maior e h6 o menor
+<p></p>: paragrafos
+<br> ou </br>: quebra a linha, não utilizar vários para dar espaço entre as linha
+
+Símbolos:
+ínicia com '&' e termina com ';'
+lt: <
+gt: >
+Exemplo:
+&lt;
+Emojis(https://emojipedia.org/): 
+ínicia com '&' e termina com ';'
+x = 
+# = indica que o código do emoji é em hexadecimals
+Exemplo: &#x2f3312;
+
+Negrito/Destaque
+  Não semântico -> B
+  Semântica -> Strong
+
+Itálico/Ênfase
+  Não semântico -> B
+  Semântica -> Strong
+
+Marcado/Marca-texto
+  Mark
+
+Texto grande (Decpreciado)
+  Big
+
+Texto pequeno
+  Small
+
+Texto deletado
+  Del
+
+Texto inserido
+  Ins
+
+Sublinhado (não recomendado)
+  u
+
+Sobrescrito
+  sup
+
+Subescrito
+  sub
+
+Quando se trata de Códigos, utilize a tag:
+  Code
+
+Quando o texto precisar aparecer do jeito que está escrito, use a tag:
+  pre
+
+Para citação em linha, utilize a tag:
+  q
+
+Para citação em bloco, utilize a tag:
+  blockquote
+
+Para siglas, utilize a tag:
+  abbr, com o parâmetro 'title'
+
+Se por algum motivo precisa inverter o texto, use a tag:
+ bdo, com os parâmetros: 'dir' e os valores: 'auto', 'ltr' e 'dtr'
+
+Lista
+  Ordenada
+    ol
+      li
+    parametros: type="1, A, a, I ou i", start="qualquer vavlor númerico natural maior que zero"
+  Não ordenada
+    ul
+      li
+    parametros: type="1, A, a, I ou i", start="qualquer vavlor númerico natural maior que zero"
+  De definição
+    dl->Lista
+      dt->sigla
+      dd->definição
+
+Para link, utilize a tag:
+  a, com os parâmetros
+  Externo:
+    target="_blank"
+    rel="external"
+    href="Caminho"
+  Intetno
+    target="_self"
+    rel="next or previous"
+    href="Caminho"
+    './' é para a pasta em que está
+
+Imagens:
+Perguntas que surgiram:
+  Posso usar como bem quiser?
+    Não, imagens podem ter direitos autorais, caso você não tenha a autorização do autor ou do meio que a disponibiliza, não utilize e nem quebre as regras estabelecidade em cima dela
+  
+  Não tenho dinheiro ou algum meio viável para conseguir imagens, onde posso conseguir?
+    Sites para baixar imagens:
+    1 - Unsplash (pesquisa em inglês):
+    2 - Pexels (pesquisa em inglês):
+
+  Posso utilizar a imagem original (sem edição) no site?
+    Poder você pode, no entanto, quando se trata de imagens em sites, é recomendado utilizar imagens em tamanhos adequados, tipos adequados e resoluções adequadas. Cada caso é um caso isolado, por exemplo, o ideal para site que vão demonstrar produtos, é ter imagens de tamanho pequeno, normalmente em JPEG e resolução baixa, pois o importante é fazer um demonstração do produto. Já quando você vai demonstrar artes, seria muito bom elas terem altas resoluções (Nesse caso, é bom colocar para ela aparecer quando ser clicada, para não pesar o site).
+  Exemplo: <img src="" alt="">
+  Dinâmicas:
+    picture
+      source (Media="utilize max-width", srcset, type)
+
+
+Favicon
+  Sites:
+    Baixar: icon archive
+    Criar: favicon.cc
+    Criar: favicon.io
+  Exemplo: <link rel="shortcut icon" href="Iconstoc-Vintage-Social-Html-5.ico" type="image/x-icon">
+
+Aúdio
+  audio(src, type)
+  audio(source(src type), preload, src, controls, loop)
+
+Vídeo
+  Video src, poster, controls, loop>source src, type><
+  Video por incorporação: Site do vídeo -> Vídeo -> Compartilhar -> Copiar/Editar o Incorporar(HTML) -> Colar no Site 

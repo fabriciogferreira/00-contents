@@ -1,0 +1,47 @@
+As CSS (Cascading Style Sheets, em português, Folhas de estilo em cascata) cuida do estilo da página, ela consegue alterar as propriedades das tag's do html.
+
+Enquanto o HTML cuida da estrutura, semântica e conteúdo. As CSS cuidam do estilo da página, alterando, cores, formatos, tamanhos, comportamento e outros.
+
+Para se alterar as propriedades das tag's, utilizamos as "Declarações", elas são compostas por propriedade e o valor, respectivamento, o que você quer alterar e valor que essa alteração vai receber.
+
+Por exemplo, caso você queira alterar a cor das letras para vermelho de uma tag que possui o conteúdo em letras, você utiliza a propriedade 'color' e o valor 'red'.
+
+A forma como é feita depende de como você está utilizando a CSS e as versões das tecnologias, iremos mostrar as diversas formas conforme o texto decorre.
+
+Existem três formas de alterar as propriedades das tag's, a primeira é 'CSS em linha' ou 'CSS na linha', a segunda é CSS em bloco e por fim, a CSS Externo. A primeira e a segunda forma são CSS Interno, além de que, eles devem ficar dentro da tag ou parâmetro (depende de qual forma você está usando) 'style', para indicar que aquilo lá dentro é CSS.
+
+Já segunda e na terceira forma, é preciso indicar os seletores, ele servem para selecionar um grupo ou uma tag específica do do seu arquivo HTML.
+
+As três formas possui vantagens e desvantagens, elas são classificados em ordem de aplicação e alcançe
+
+                Ordem       | Alcançe
+CSS Externo     Primeiro    | Qualquer arquivo ligado a ele
+CSS em bloco    Segundo     | Apenas no arquivo que ele está
+CSS em linha    Terceiro    | Apenas na tag em que ele está
+
+O exemplo que vamos utilizar, é a alteração de cor do conteúdo da tag 'h1'.
+
+Na CSS em linha, isso é feito dentro da tag de abertura, veja:
+
+<h1 style=" color: red; ">Seja bem vindo ao meu site</h1>
+
+A cor vermelha só seria aplicada apenas ao conteúdo desta tag, mesmo que você tenha outra tag's h1.
+
+Já para a CSS em bloco, ficaria da seguinte forma, ele tem que ficar dentro da tag 'head':
+
+<style>
+    h1{
+        color: red;
+    }
+</style>
+
+Como dito anteriormente, essa forma possui um alcançe maior que a CSS em linha, nesse caso, se você tiver mais de um par de tag's 'h1', a cor vermelha seria aplicada a todas, desde que não tenha uma tag com CSS em linha mudando a cor do conteúdo.
+
+Por fim, a terceira e última forma, a que possui o maior alcançe, para utilizar-lá, é necessário criar um arquuivo CSS, ou seja, criar um arquivo com a extensão 'css', no nosso exemplo, nosso arquivo CSS tem o nome de 'estilo.css'.
+
+estilo.css:
+h1{
+    color: red;
+}
+
+Veja que nesse exemplo não foi necessário indicar que se trata de CSS utilizando a tag ou parâmetro 'style', já que, ele já está em um arquivo CSS. Nessa forma, a CSS altera a cor do para vermelho do conteúdo de qualquer tag 'h1' de qualquer arquivo HTML que esteja ligado ao arquivo CSS e desde que não tenha utilizado nenhuma das duas formas anteriores para alterar a cor da tag h1.

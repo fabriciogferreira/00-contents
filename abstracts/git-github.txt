@@ -1,0 +1,29 @@
+Diretório -> Stage ->   
+
+Arquivos:
+    .gitignore: não ratreia os arquivos que forem específicados passando seu 'caminho', cada linha é um caminho. Logo, você não pode visualizar alterações, adicionar alterações e nem commitar alterações. O arquivo '.gitignore' deve ser ser versionado, ou seja, deve ser ratreado.
+
+Comandos:
+    q: sai do git log 
+
+git config --global user.name "Fabrício Gonçalves Ferreira": Adiciona um nome de usuário global ao git
+git config --global user.email "fabriciof481@gmail.com": Adiciona um e-mail de usuário global ao git
+git init: Inicia um repositório em uma pasta
+git status: Verifica qualquer alteração no repositório 
+git add <nome do arquivo>: adiciona no stage as alterações feitas no arquivo específicado
+git commit: grava as alterações no sistema de versionamento
+git commit -m "Mensagem": grava as alterações no sistema de versionamento com uma mensagem/descrição
+git log: mostra o histórico de alterações gravadas no repositório
+git remote add origin https://github.com/fabriciogferreira/01-exercicios.git: aponta/liga um repositório local a um repositório remoto
+git push origin main/master/other: envia as alterações para o repositório remoto
+git clone https://github.com/fabriciogferreira/01-exercicios: faz um clone dos arquivos/pastas do caminho que está especificado na URL
+git add .: adiciona no stage todas as alterações feitas nos arquivos do repositório
+git commit -a -m "mensagem": adiciona as alterações ao stage e commit de uma vez só, ao invés de precisar de dois comando. Obs: quando um novo arquivo é criado, se você quiser que ele seja versionado, você precisa rastrea-ló (git add ...) 
+git commit -am "mensagem": mesma coisa que o de cima, só que simplificado
+git log -n 2: mostra as duas últimas alterações gravadas no repositório
+git log online: mostra o histórico somente com o id e a mensagem das alterações
+git log --stat: mostra as informações do git log, mais as informações resumidas do que foi alterardo
+git log -n 2 --oneline --stat: mostra os dois últimos commit's em linha com informações da alteração
+
+Referências:
+Controlando veresões com Git e GitHub - Alexandre Aquiles e Rodrigo Ferreira
