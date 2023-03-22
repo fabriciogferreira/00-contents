@@ -1,4 +1,4 @@
-Diretório -> Stage ->   
+Diretório -> Área de Stage ->   
 
 Arquivos:
     .gitignore: não ratreia os arquivos que forem específicados passando seu 'caminho', cada linha é um caminho. Logo, você não pode visualizar alterações, adicionar alterações e nem commitar alterações. O arquivo '.gitignore' deve ser ser versionado, ou seja, deve ser ratreado.
@@ -10,7 +10,7 @@ git config --global user.name "Fabrício Gonçalves Ferreira": Adiciona um nome 
 git config --global user.email "fabriciof481@gmail.com": Adiciona um e-mail de usuário global ao git
 git init: Inicia um repositório em uma pasta
 git status: Verifica qualquer alteração no repositório 
-git add <nome do arquivo>: adiciona no stage as alterações feitas no arquivo específicado
+git add <nome do arquivo>: adiciona no stage as alterações feitas no arquivo específicado, não serve para arquivos deletados, ah não ser que você use o  --all
 git commit: grava as alterações no sistema de versionamento
 git commit -m "Mensagem": grava as alterações no sistema de versionamento com uma mensagem/descrição
 git log: mostra o histórico de alterações gravadas no repositório
@@ -18,12 +18,20 @@ git remote add origin https://github.com/fabriciogferreira/01-exercicios.git: ap
 git push origin main/master/other: envia as alterações para o repositório remoto
 git clone https://github.com/fabriciogferreira/01-exercicios: faz um clone dos arquivos/pastas do caminho que está especificado na URL
 git add .: adiciona no stage todas as alterações feitas nos arquivos do repositório
-git commit -a -m "mensagem": adiciona as alterações ao stage e commit de uma vez só, ao invés de precisar de dois comando. Obs: quando um novo arquivo é criado, se você quiser que ele seja versionado, você precisa rastrea-ló (git add ...) 
+git commit -a -m "mensagem": adiciona as alterações ao stage e commita de uma vez só, ao invés de precisar de dois comando. Obs: quando um novo arquivo é criado, se você quiser que ele seja versionado, você precisa rastrea-ló (git add ...) 
 git commit -am "mensagem": mesma coisa que o de cima, só que simplificado
 git log -n 2: mostra as duas últimas alterações gravadas no repositório
 git log online: mostra o histórico somente com o id e a mensagem das alterações
 git log --stat: mostra as informações do git log, mais as informações resumidas do que foi alterardo
 git log -n 2 --oneline --stat: mostra os dois últimos commit's em linha com informações da alteração
+git diff: mostra em detalhes as mudanças não ratreadas de arquivos ratreados, ou seja mostra a diferença dos arquivos do diretório de trabalho e da área de stage
+git diff <nomeArquivo>: mostra em detalhes as mudanças não ratreadas do arquivo ratreado específicado, ou seja mostra a diferença dos arquivos do diretório de trabalho e da área de stage
+git diff --staged: mostra em detalhes as mudanças ratreadas dos arquivos ratreados, ou seja, mostra a diferença dos arquivos da área de stage e do último commit realzado
+git diff codUltimoCommit: mostra em detalhes as mudanças ratreadas dos arquivos ratreados do stage, ou seja, mostra a diferença dos arquivos da área de stage e do último commit realzado e mostra em detalhes as mudanças não rastreadas dos arquivos ratreados do diretório
+git diff codCommitIniciaIntevralo..ultimoCommitMostrado: mostra em detalhes as mudanças comitadas entre os commits específicados até o commit que foi especificado como segundo. Imagine o commit 1, 2, 3, caso você queira mostrar o 2 e 3, você precisa especificar do 1 ao 3, ficando '1..3', o primeiro não será mostrado, pode ser lido como "mostre as mudanças efetuadas a partir do comando 1 até o commit 3
+git diff codigoCommit~quantidadeMundançasAnterioresContandoDoEspecíficadoAtéQuantosVocêQuerQueApareça: mostra em detalhes as mudanças comitadas, não ratreados e rastreadas do commit especificado até a quantidade de commits anteriores que você quer que apareça, o commit específicado faz parte da quantidade
+git 
+
 
 Referências:
 Controlando veresões com Git e GitHub - Alexandre Aquiles e Rodrigo Ferreira
