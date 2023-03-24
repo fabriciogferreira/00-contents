@@ -1,5 +1,9 @@
 # 00-contents
-PT-BR: Repositório que você pode entender como eu organizo e estruturo meu repositórios. Além de que você pode encontrar outras coisas.
+PT-BR: Olá, seja bem vindo, neste repositório que você pode entender como eu organizo e estruturo meu repositórios. Além de que você pode encontrar outras coisas.
+Caso você vá utilizar como referência, por favor, caso eu tenha criado o exercício, cite-me ou caso eu tenha pego de outro ator, tente citá-lo diretamente, caso não seja possível, cite-me.
+Para me citar, faça da seguinte forma:
+
+> Criado por Fabrício G. Ferreira. Navegue em: <a href="https://linktr.ee/fabriciogferreira" target="_blank" rel="external">https://linktr.ee/fabriciogferreira</a>. Código <CódigoDoExercícioOuLista>, Disponível em: <a href="https://github.com/fabriciogferreira/00-contents/edit/main/README.md" target="_blank" rel="external">https://github.com/fabriciogferreira/00-contents/edit/main/README.md</a>.
 
 ## Nomenclatura
 <ol>
@@ -138,8 +142,6 @@ PT-BR: Repositório que você pode entender como eu organizo e estruturo meu rep
             <li>
                 00-livros
             </li>
-        </ul>
-        <ul>
             <li>
                 01-sites
             </li>
@@ -164,6 +166,27 @@ PT-BR: Repositório que você pode entender como eu organizo e estruturo meu rep
         03-pessoal
     </li>
 </ul>
+
+## Procurar ou filtrar exercícios
+<p>Em algum momento no futuro, alguém vai estar procurando um exercícios ou uma lista de exercícios de alguma pasta, no enetanto, provavelmente vai haver centenas de exercícios, o que vai dificultar achar esse exercício ou pasta, para resolver esse problema, você pode usar o código do exercício. Veja o passo a passo</p>
+
+<ol>
+	<li>Ative a opção de pesquisar do seu navegador, caso seja o chrome, aperte CTRL + F para ativar a opção de pesquisar do chrome ou aperte nos três pontinhos e depois aperte em "Buscar..."</li>
+	<li>Para ir filtrando/procurando até chegar no exercício ou pasta que você quer, vá digitando os códigos dos repositórios e pastas, lembre-se de usar o separador '.'</li>
+	<li>Vamos supor que você queira as pastas dos exercícios referente ao curso de HTML5 e CSS3 Módulo 1 do Gustavo Guanabara no site Curso em vídeo.</li>
+	<ol type="1">
+		<li>Digite '01'</li>
+		<li>Digite '.'</li>
+		<li>Digite '01'</li>
+		<li>Digite '.'</li>
+		<li>Digite '01'</li>
+		<li>Digite '.'</li>
+		<li>Digite '00'</li>
+		<li>Digite '.'</li>
+		<li>Digite '00'</li>
+	</ol>
+	<li>Como você pode observar, ele selecionou diversos códigos, cada seleção representa um exercícios, caso queira um exercício específico, digite um '.' e o código do exercício que é composto por 4 digitos.</li>
+</ol>
 
 ## Lógica de programação
 <!--Se por algum motivo, faltar uma informação, colocar[N.I/N.E] = Não Informado ou Não Existe-->
