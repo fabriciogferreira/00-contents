@@ -45,3 +45,47 @@ h1{
 }
 
 Veja que nesse exemplo não foi necessário indicar que se trata de CSS utilizando a tag ou parâmetro 'style', já que, ele já está em um arquivo CSS. Nessa forma, a CSS altera a cor do para vermelho do conteúdo de qualquer tag 'h1' de qualquer arquivo HTML que esteja ligado ao arquivo CSS e desde que não tenha utilizado nenhuma das duas formas anteriores para alterar a cor da tag h1.
+
+------------------------------/Cores\------------------------------
+As cores no css podem ser representadas diversas forma, desde nome de cores até HSL.
+
+Nome: para utilizar nome das cores como valor, basta escrever o nome em inglês da cor como valor na propriedade que permite cores, como a propriedade color. Exemplo
+h1{
+    color: blue;
+}
+
+Já para o hexadecimal é preciso indicar que você está usando hexadecimal. Exemplo:
+h1{
+    color: #ffffff; <- Cor branca
+}
+é possível alterar a transparência da cor passando mais dois dígitos ao hexadecimal. Exemplo
+h1{
+    color: #ffffff7c; <- Cor branca, com por volta de 50% de transparência
+}
+
+Para RBG, você também precisa indicar que está usando o RBG. Exemplo:
+h1{
+    color: rbg(0, 0, 0); <- Cor preta 
+}
+é possível passar mais um valor para o RGB, que é a transparência, ela vai 0 a 1, lembrando que como a lingaugem é desenvolvido na língua inglesa, eles utizam '.' para separar casas decimais. Exemplo:
+h1{
+    color: rbga(0, 0, 0, 0.5); <- Cor preta com 50% de transparência
+}
+
+Por fim, existe o HSL, novamente você precisa indicar que está usando HSL. Exemplo:
+h1{
+    color: hsl(0, 0%, 100%);
+}
+Assim como os dois anteriores, também é possível alterar a transparência da cor. Que vai de 0 a 1 também. Exemplo:
+h1{
+    color: hsl(0, 0%, 100%, 0.5);
+}
+
+------------------------------/Gradiente\------------------------------
+Para utilizar o gradiente, você precisa obviamente ter no minímo duas cores, o formato e a direção (em alguns casos).Exemplo
+h1{
+    background: linear-gradient(45deg, #ffffff, #000000);
+}
+h1{
+    background: radial-gradient(#e66465, #9198e5);
+}
