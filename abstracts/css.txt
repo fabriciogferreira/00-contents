@@ -182,6 +182,7 @@ Caso você precise fazer formatações em uma tag específica, você pode utiliz
 id <- serve para definir um nome único para a tag
 #nomeID <- o '#' serve para referenciar a tag nomeada
 
+class:
 Agora, se você precise alterar uma propriedade de várias tag's, você pode usar o seletor class, diferente do id que é recomendado você atribuir a apenas uma tag, o class é recomendado usar em várias tag's para altear propriedades em comum.
 Arquivo HTML:
     <h1 class="titulo"></h1>
@@ -217,3 +218,68 @@ Arquivo CSS:
     .tituloh1{
         background-color: black;
     }
+
+pseudo-class:
+As pseudo-classes tratam do estado em que um elemento está. Creio que o melhor exemplo para isso, seja o link. 
+Imagine os seguinte cenários para o link de uma  página, por cima (quando o mouse está em cima), segurando o click (quando você aperta no link, mas não solta), clicado/visitado/aberto/ativado (quando você clicou e soltou).
+A partir desses desses estados é possível alterar as propeiedades da tag com base em qual estado ele está. Para utilizar uma pseudo-classe, você deve usar o símbolo ':' depois de ter referência a tag.
+Vamos supor que você quer mudar a cor do conteúdo das tag's 'a' (os links) de acordo com o seu estado, para o estado 'por cima' você quer que ele fique vermelho, para o 'segurando' você quer amarelo e para o cliclado você quer azul.
+Arquivo HTML:
+    <a href="link">GitHub</a>
+    <a href="link">Instagram</a>
+    <a href="link">Facebook</a>    
+Arquivo CSS:
+    Por cima (hover):
+        a:hover{
+            color: red;
+        }
+    Segurando (active):
+        a:active{
+            color: yellow; 
+        }
+    Visitado (visited):
+        a:visited{
+            color: blue;
+        }
+    
+Pseudo-elementos:
+Os pseudo elementos, são elementos que não tem no código HTML, mas que são colocados visualmente através de código HTML. Ele é usado da mesma forma que os pseudo-classes, a diferença é que para utilizalos usa-se '::' ao invés de ':'.
+Provavelmente os dois pseudo-elementos mais conhecidos são o 'before' e o 'after', pelo nome, você já deve imaginar o que eles fazem.
+O before adiciona o conteúdo especificado antes do conteúdo da tag e o after adiciona o conteúdo especificado depois do conteudo da tag.
+Vamos supor que você tenha uma site com mais de 1000 links, na frente desse links você quer colocar '[link]', se fosse manualmente, você teria que trocar dos mil e caso você precisasse trocar novamente, teria que trocar dos mil novamente, com o after você faria apaenaas com algumas linhas de código.
+Arquivo HTML:
+    <a href="urlN">Link N</a>
+    <a href="urlN">Link N</a>
+    <a href="urlN">Link N</a>
+    ...
+
+Arquivo CSS:
+    a::after{
+        content: '[Link]'; 
+    }
+Pronto, com apenas 4 linhas você adicionou '[Link]' em todos os links do site.
+
+
+children:
+Vamos supor um cenário mais específico, um que você precise colocar '[Link]' na frente das tag's 'a' que estão dentro de tag's div's diretamente, ou seja, não tem nada entre 'div' e 'a'.
+É aí que entra o children, ele seleciona todas as tag's que são descedentes direto da tag específicada.
+    Diretamente: <div><a></a></div>
+    Indiretamente: <div><p><a></a></p></div>
+Continuando o exemplo:
+Arquivo HTML:
+    <a></a>
+    <div>
+        <a></a>
+        <p>
+            <a></a>
+            <a></a>
+        </p>
+        <a></a>
+    </div>
+    <a></a>
+
+Arquivo CSS:
+    div > a::after{
+        content: '[Link]';
+    }
+Neste exemplo, veja que apenas as tag's 'a' das linhas 272 e 277 vão receber '[Link]', pois as tag's 'a' das linhas 270 e 279 não estão dentro da tag 'div', já as tag's 'a' da linhas 274 e 275 que estão dentro da tag 'p' que por sua vez está dentro da tag 'div' também não recebem, pois não são filhos diretos da tag 'div' assim como estão as tag's 'a' da linha 272 e 277.
