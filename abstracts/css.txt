@@ -89,3 +89,131 @@ h1{
 h1{
     background: radial-gradient(#e66465, #9198e5);
 }
+------------------------------/Fonte\------------------------------
+https://www.w3.org/Style/Examples/007/fonts.en.html
+O estudo da gráfia visa entender como pode ser criados letras que melhoram a leitura, para que cada 'Família' seja aplicado no contexto correto e da forma correta, assim, a fonte consegue passar as emoções que voçe deseja para o leitor. Por exemplo, quando você vai dar um alerta de aviso através da texto literário, uma fonte com a aparência mais séria é mais adequada do que uma fonte vista para crianças, como a 'Comic Sans'.
+
+Este estudo da gráfia tem o nome de tipográfia, que vem do grego, tipo (Týpos, que siginifica imprimir, ato de colocar coisas no papel) e grafia (Graphía, que siginifica escrita), portanto significa como eu vou escrever coisas no papel
+
+Anatomia das letras/glifo/caracteres
+Medidas:
+X <- O 'x' minúsculo é o ponto de partida para a criação da fonte
+Altura x <- Define a altura base de todos as letras minúsculas baseado na altura do x, isso não inclui a parte ascendente da letra, por isso, ela podem 'vazar'
+Ascendente <- altura que vaza acima da letra x
+Descendente <- altura que vaza abaixo da letra x
+Corpo <- Somas de todas as altura ou a altura da fonte
+Altura da maiúsculas <- 
+Corpo, geometria:
+Serif <- São pequenas pontas que ficam nas extremidades das letras, elas servem para criar uma linha imaginária na nossa cabeça, afim de facilitar a leitura das linhas, normalmente são usadas em textos em onbjetos físicos (Livros, jornais e outros)
+
+Termos
+Fonte <- Conjunto de glifos
+Família Tipográfica <- COnjunto de váriações da fonte
+
+Categorias:
+Serifada/Serif <- Posuem pontas nas extremidades
+Não serifada/Sans-serif <- Não posuem pontas nas extremidades
+Monoespaçada <- Todas as letras posuem a mesma largura
+Cursiva <- Tenta imitar a escrita humana
+Fantasia <- não segue as regras acima
+
+Como obter as fontes
+Instalado:
+    Normalmente, os dispositivos já vem com fontes instaladas, para saber se a fonte já está instalada, você pode ir testando.
+
+Local:
+    A segunda forma é baixar a fonte e importa-lá no CSS, para isso, utilize a seguinte regra:
+    @font-face{
+        font-family: nomeQueVocêQuerDar; <- nome que você quer dar
+        src: url('caminho do arquivo da fonte') format('nomeDoFormato'), url('caminho do arquivo da fonte de outro formato') format('nomeDoFormato'); <- caminho do arquivo da fonte e o formato
+        font-weight: 400;  <- Peso padrão
+        font-style: normal; <- estilo padrão
+    }
+
+Remoto:
+    A terceira forma é utilizar uma fonte que está na internet (em outro local), você também precisa importa-lá, um ótimo site para importar fontes remotas, é o google font, mas lembre-se, caso o servidor da google que hospeda a fonte caia, seu site não irá conseguir utilizar aquele fonte e também para testa-lá você precisa ter intenet.
+    Para utiliza-lá, use o import da seguinte forma:
+    @import url('link');
+
+Recomendação:
+    Recomendo utilizar de forma remota, para que o usuário não tenha que baixar mais arquivos além do próprio site. Mas, recomendo importa a mesma fonte de mais de um site, para que caso um não funcione, o outro provavelmente funcionára.
+
+Declarações das fontes:
+font-family:; <- Serve para mudar a famiília da fonte, é recomendável passar mais de uma família e passar uma categoria relacionada a categoria da família que você quer (Isso de chama 'css web safe font combinations'), a virgula serve para separar os nomes. 
+
+Isso para navegadores que podem não suportar a fonte que você passou, assim, ela vai tentar utilizar a primeira que você passsou, caso não consiga, vai ir para a segunda, assim por diante, até chegar na categoria, todo navegador possui uma fonte de cada categoria.
+    Uma fonte: font-family: Arial;
+    Duas fontes: font-family: Arial, Verdana;
+    Duas fontes e uma categoria: font-family: Arial, Verdana, sans-serif;
+
+font-size:; <- Serve para mudar o tamanho da fonte no dispositivo.
+Existem dois tipos de medidas para o valor se basear na hora de calcular o tamanho, veja (https://www.w3.org/Style/Examples/007/units.pt_BR.html).
+    Medidas absolutas: cm, mm, in, px, pt, pc
+    Medidas relativas: em, ex, rem, vw, vh, %
+    Recomendações da W3c: px, em, %
+    Recomendação Guanabarra e W3C: em
+    Exemplo: font-size: 16em;
+
+font-weight:; <- serve para definir o peso da fonte, em uma tradução adequada para os brasileiros, seria equivalente a grossura dos caracteres. Ele possui um intervalo de 100 a 900, que alterna de 100 em 100, você também pode passar os nomes 'lighter' (100), normal (400), bold (700), bolder (?).
+
+font-style:; <- Serve para passar definir o itálico, basta escrever 'italic'
+    Exemplo: font-style: italic;
+
+shorthand:
+Ordem: font: style, weight, size, family;
+Exempo: font: italic 600 1.5em Arial, sans-serif;
+
+Alinhamento:
+Antigamente, para centralizar um texto, utilizava-se a tag 'center', hoje em dia, isso é feito pela CSS. Nela, o alinhamento do texto possuem quatro tipos, a direita, a esquerda, centralizado e justificado, para isso, utilize a propriedade 'text-align'
+    text-align: left; <- a esquerda (padrão)
+    text-align: right; <- a direito
+    text-align: center; <- centro
+    text-align: justify; <- justificado
+
+Identação:
+    Caso você precise que o começo da primeira linha se afaste, use a propriedade:
+    text-indent: 100px;
+
+------------------------------/Seletores\------------------------------
+id:
+Caso você precise fazer formatações em uma tag específica, você pode utilizar o parâmetro 'id', com ele é possível determinar um nome único a uma tag para que você possa fazer alterações a ela.
+    na tag: <p id="primeiroP">Isso é um paragrafo</p
+    na CSS: #primeiroP{propriedades e valores}
+id <- serve para definir um nome único para a tag
+#nomeID <- o '#' serve para referenciar a tag nomeada
+
+Agora, se você precise alterar uma propriedade de várias tag's, você pode usar o seletor class, diferente do id que é recomendado você atribuir a apenas uma tag, o class é recomendado usar em várias tag's para altear propriedades em comum.
+Arquivo HTML:
+    <h1 class="titulo"></h1>
+    <h2 class="titulo"></h2>
+    <h3 class="titulo"></h4>
+Arquivo CSS:
+    .titulo{
+        color: yellow;
+    }
+
+Se você precisa alterar propriedades de uma tag que compartilha o seletor class com outras tag's, você pode colocar o nome da tag na frente do class no CSS, veja exemplo:
+Arquivo HTML:
+    <h1 class="titulo"></h1>
+    <h2 class="titulo"></h2>
+    <h3 class="titulo"></h4>
+Arquivo CSS:
+    .titulo{
+        color: yellow;
+    }
+    h2.titulo{
+        font-style: italic;
+    }
+Assim, mesmo que h1 e h3 tenham a class "titulo", apenas o texto do h2 vai ficar em itálico, pois foi colocar 'h2' na frente de '.titulo' no css.
+Um arquivo html pode ter mais de uma class e tbm uma tag tbm pode ter mais de uma class, eles são separados por virgula.
+Arquivo HTML:
+    <h1 class="titulo tituloh1"></h1>
+    <h2 class="titulo"></h2>
+    <h3 class="titulo"></h4>
+Arquivo CSS:
+    .titulo{
+        color: yellow;
+    }
+    .tituloh1{
+        background-color: black;
+    }
