@@ -241,6 +241,9 @@ Arquivo CSS:
         a:visited{
             color: blue;
         }
+As pseudo classes possuem declarações que definem a como a mudança de estado deve se comportar:
+transition-duration: 0.5s; <- define quanto tempo vai levar para sair de um estado e ir para outro 
+
     
 Pseudo-elementos:
 Os pseudo elementos, são elementos que não tem no código HTML, mas que são colocados visualmente através de código HTML. Ele é usado da mesma forma que os pseudo-classes, a diferença é que para utilizalos usa-se '::' ao invés de ':'.
@@ -283,3 +286,203 @@ Arquivo CSS:
         content: '[Link]';
     }
 Neste exemplo, veja que apenas as tag's 'a' das linhas 272 e 277 vão receber '[Link]', pois as tag's 'a' das linhas 270 e 279 não estão dentro da tag 'div', já as tag's 'a' da linhas 274 e 275 que estão dentro da tag 'p' que por sua vez está dentro da tag 'div' também não recebem, pois não são filhos diretos da tag 'div' assim como estão as tag's 'a' da linha 272 e 277.
+
+
+------------------------------/Box Model\------------------------------
+As tag's possuem um conceito chamado de box model, é nesta estrutura que é apresentado as tags do HTML no seu site, ele possui diversas caraterísitcas que compoem a box model, essas caraterísticas podem alteradas pela CSS para que você possa criar outros formatos ou deixar o seu site ao seu gosto.
+Normalmente, elas são modificadas para que visualmente o site esteja em conforme com as regras do design gráfico.
+Vou demonstrar as caraterísticas utilizando tag's, no entanto, isso é apenas demonstrativo, essas tag's não existem, elas são propriedades.
+Características:            
+            width (largura) 
+         ----------------------------------------------------------
+        |<margin (Margem/Espaçamento Externo)>
+        |    <outline (Traçado)>
+        |        <border (Borda)>
+        |            <Padding (Preenchimento/Espaçamento Interno/)>
+        |                <h1>
+height  |                    Olá, mundo!
+(Altura)|                </h1>
+        |            </Padding>
+        |        </border>
+        |    </outline>
+        |</margin>
+
+Tipos:
+box-level:
+O tipo de caixa box-level sempre ocupa 100% da largura, ah não ser que você mude isso, por exemplo:
+Arquivo HTML:
+    <div>Algumas palavras</div>
+    <div>O texto gigantesgo que poderia iniciar na linha de cima</div>
+    <div>Poucas palavras que caberiam na linha de cima</div>
+
+Mesmo que a primeira 'div' tenha pouco texto, o texto da segunda 'div' não continua no texto acima, pois as div's são do tipo box-level, ou seja, ela está ocupando 100% da largura, mesmo que seu conteúdo não esteja. O mesmo vale para a última div, mesmo que o conteúdo dela caiba na última linha do texto acima, ela não vai pra cima, por que ele ocupa 100% da largura
+Outros box-level: h1 a h6, p, main, header, nav...
+
+inline-level:
+O tipo de caixa inline-level sempre ocupa a sua largura, ah não ser que você mude isso, por exemplo:
+    <span>Muito texto</span>
+    <span>Pouquissimo texto</span>
+    <span>Muito texto</span>
+Mesmo que o primeiro 'span' tenha muito texto, caso tenha espaço para o span debaixo caber, seja parcialmente ou totalmente, ele vai preencher, tbm vale para o terceiro span.
+Outros inline-level: a, code, small, strong, em, sup, sub...
+
+A propriedade que define se uma tag vai ser 'box-level' ou 'inline-level' é display, com ele é possível alterar tipo de display.
+
+Os dois principais valaores é 'block' que refere-se ao box-level e o 'inline-block' refere-se ao inline-level. Exemplo:
+a{
+    display: block;
+}
+p{
+    display: inline-block;
+}
+
+Vamos ver como se altera as propriedades do box, de fora para dentro, então començando pelo width (largura) e height (altura), os dois juntos é chamado de box sizing.
+Arquivo HTML
+    p{
+        width: 300%; ou width: 50%;
+        height: 300%; ou height: 50%;
+    }
+
+Agora vamos ver a margem, o nome da propriedade é parecido com o nome em português:
+Arquivo HTML:
+    p{
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 40px;
+        margin-left: 10px;
+    }
+    shorthand:
+    p{
+        /*margin: top right bottom left;*/
+        margin: 10px 20px 30px 40px;
+    }
+    Se o lado de cima de baixo forem iguais e o lado esquerdo e direito forem iguais:
+    p{
+        /*margin: TopAndBottom RightAndLeft;*/
+        margin: 10px 20px;
+    }
+    Se todo os lados forem iguais, você pode usar:
+    p{
+        margin: 10px;
+    }
+O valor 'auto' se comporta diferente baseado no  tipo de caixa:
+    box-level: ocupa o máximo que der, ou seja, vai tentar preencher o máximo dee espaço possível
+    inline-level: desoucupa o máximo que der, ou seja, vai tentar diminuir o máximo possível
+
+ 
+Para o Outline, veja:
+    p{
+        outline-width: 10px; <- Espessura
+        outline-style: solid; <- Formato do traçado
+        outline-color: darkgreen; <- cor do traçado
+    }
+    shorthand:
+    p{
+        outline: 10px solid green;
+    }
+
+Para o border, veja:
+    p{
+        border-width: 10px; <- Espessura
+        border-style: solid; <- Formato do traçado
+        border-color: darkgreen; <- cor do traçado
+    }
+    shorthand:
+    p{
+        border: 10px solid green;
+    }
+
+Para o Padding, veja:
+    p{
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 40px;
+        padding-left: 10px;
+    }
+    shorthand:
+    p{
+        /*padding: top right bottom left;*/
+        padding: 10px 10px 40px 10px;
+    }
+    Se o lado de cima de baixo forem iguais e o lado esquerdo e direito forem iguais:
+    p{
+        /*padding: TopAndBottom RightAndLeft;*/
+        padding: 10px 20px;
+    }
+    Se todo os lados forem iguais, você pode usar:
+    p{
+        padding: 10px;
+    }
+
+Para colocar sombras nas sua tags, você utiliza a propriedade box-shadow, você pode passar até 6 valores, sombra interna, deslocamento lateral, deslocamento vertical, borrão, espalhamento e cor.
+p{
+    /*box-shadow: SombraInterna DeslocamentoLateral DeslocamentoVertical Borrão Espalhamento Cor;*/
+    box-shadow:;
+    /*Sombra interna:*/ box-shadow: inset 3px 3px 5px 3px black;
+    /*Sombra externa*/ box-shadow: 3px 3px 5px 3px black;
+}
+
+Já para o arredondamento de cantos, utiliza-se o border-radius, como possui quatro cantos, ele funciona no mesmo esquema do padding e margin.
+p{
+    background-color: black;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+/*Cantos diferentes*/
+P{
+    border-radius: 10px 20px 30px 40px;
+}
+/*Superior esquerdo e inferior direito iguais e Superior direito e infeiror esquerdo iguais*/
+P{
+    border-radius: 10px 20px;
+}
+/*Cantos iguais*/
+P{
+    border-radius: 10px;
+}
+/*Para fazer círculos, use 50% ou mais*/
+p{
+    border-radius: 50%;
+}
+
+------------------------------/Grouping Tags\------------------------------
+Existem tags que podem definir aproximar a estrtura de um site, deixando-o mais semântico, veja as princicpais:
+
+hearder <- Normalmente onde fica o cabeçalho do site, onde pode ser colocado logo, menu, barra de pesquisa, nome do site e outros.
+nav <- Onde ficam os links do menu, imagine nav como uma navegação dos principais links do site
+main <- onde normalmente fica todo o conteúdo do site, informações, notícias, textos, artigos, títulos e etc
+section <- Define seções para o site, também pode ser visto divisores
+article <- utilizado para conteúdo independentes e autoexplicativos
+aside <- utilizado para conteúdo referêncial, normalmente fica do lado direito do site
+footer <- setia o rodapé do site, normalmente fica informações judiciais, autorais ou um menu de navegação mais extenso
+
+------------------------------/Grouping Tags\------------------------------
+Para facilitar o desenvolvimento e a manutenção dos estilos do site, as CSS possuem varíaveis, elas servem para que você altere facilmente as cores do seu site.
+Mudando apenas as cores das varíaveis, é possível alterar o estilo de N sites, ao inves de ir linha a linha no arquivo CSS para alterar cada, então você cria variaveis das cores da sua paleta de cores, além do preto e branco.
+Para as exceções, você cria variaveis também, assim também é possível altera-lás facilmente. As variaveis criadas ficam dentro de ':root', seria a 'raiz' do seu arquivo CSS, para declarar a variavel, utiliza-se '--' e depois o nome. Veja:
+:root{
+    /*1 Cores*/
+    /*1.1 Paleta*/
+    --cor1: rgb(a)/hexadecimal/hsl;
+    --cor2: rgb(a)/hexadecimal/hsl;
+    --cor3: rgb(a)/hexadecimal/hsl;
+    /*1.2 Exceções*/
+    --nomesite-partesite-conceitosite: rgb(a)/hexadecimal/hsl;
+    --contato-rodape-fundo: rgb(a)/hexadecimal/hsl;
+}
+
+-----------/Declarações Gerais\-----------------
+Caso seja necessário alterar propeiedades de todas as que possuem essas propriedades, você pode usar o seletar geral '*', através dele, qualquer tag que possuir as propriedades das declarações que você, vai rececber as alterações da propriredade.
+
+Retirando a margem e espaçamento interno de todas as tag's:
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+---------/Declarações Específicas\---------------
+Existem declaraçõesque funcionam somente para algumas ou uma tag, como é caso da lista:
+list-style-type: '\2714\00A0'; <- muda o símbolo dos itens da lista
+list-style-position: inside; <- considera o símbolo dos itens como parte do conteúdo
