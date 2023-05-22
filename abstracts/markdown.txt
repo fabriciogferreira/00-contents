@@ -1,0 +1,171 @@
+Título:
+# a #*6, sendo # o menor e #*6 o maior
+
+Negrito:
+**Texto Aqui** ou CTRL+B
+__Texto Aqui__ ou CTRL+I
+
+Itálico:
+*Texto Aqui*
+_Texto Aqui_
+
+Tachado:
+~~Text Aqui~~
+
+Negrito e itálico
+***Texto Aqui***
+
+Subscrito
+<sub>Texto Aqui</sub>
+
+Sobrescrito
+<sup>Texto Aqui</sup>
+
+Citação:
+> texto
+
+Code em linha:
+'comando aqui' ou CTRL+E
+
+Código em bloco:
+'''
+Comando aqui 1
+Comando aqui 2
+Comando aqui 3
+'''
+
+Código em bloco com realce:
+'''
+Comando aqui 1
+Comando aqui 2
+Comando aqui 3
+'''
+
+Cores suportadas:
+'#0969DA'
+'rgb()'
+'hsl'
+
+Obs: Um modelo de cor com suporte não pode ter espaços à esquerda ou à direita dentro das aspas invertidas.
+
+Link:
+Texto [Conteúdo](Link) Texto
+This site was built using [GitHub Pages](https://pages.github.com/).
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+<a id="" href=""></a>
+
+Imagens:
+<img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+Em um arquivo .md no mesmo branch: /assets/images/electrocat.png
+Em um arquivo .md em outro branch: /../main/assets/images/electrocat.png
+Em problemas, pull requests e comentários do repositório: ../blob/main/assets/images/electrocat.png?raw=true
+Em um arquivo .md em outro repositório: /../../../../github/docs/blob/main/assets/images/electrocat.png
+Em problemas, pull requests e comentários de outro repositório: ../../../github/docs/blob/main/assets/images/electrocat.png?raw=true
+
+ Imagem responsiva:
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
+ <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+</picture>
+
+Lista não ordenada:
+- George Washington
+* John Adams
++ Thomas Jefferson
+
+Lista ordenada:
+1. James Madison
+2. James Monroe
+3. John Quincy Adams
+
+Lista aninhada:
+1. First list item
+   - First nested list item
+     - Second nested list item
+
+Checklist:
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+
+Mencionar Pessoa:
+@github/support What do you think about these updates?
+
+Referências a problemas e pull requests
+#
+
+Emojis:
+:EmojiCode:
+
+Notas de ródape 
+Here is a simple footnote[^1].
+A footnote can also have multiple lines[^2].
+You can also use words, to fit your writing style more closely[^note].
+
+[^1]: My reference.
+[^2]: Every new line should be prefixed with 2 spaces.
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
+
+Ignorar markdown:
+\
+Tabela:
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
+
+Seção recolhida:
+<details>
+    <summary>My top THINGS-TO-RANK</summary>    
+</details>
+
+Seção recolhida inicialmente aberta:
+<details open>
+    <summary>My top THINGS-TO-RANK</summary>    
+</details>
+
+Diagrama
+https://docs.github.com/pt/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+
+Expressão matemática em Linha (https://docs.github.com/pt/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions):
+This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+
+Expressão matemática em bloco:
+**The Cauchy-Schwarz Inequality**
+
+$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+
+ou
+
+**Here is some math!**
+
+```math
+\sqrt{3}
+```
+
+Expressão matemática em dólar:
+This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
+
+To split <span>$</span>100 in half, we calculate $100/2$
+
+Linha:
+---
+
+
+
+Comentário:
+<!-- -->
