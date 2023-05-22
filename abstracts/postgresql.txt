@@ -1,0 +1,333 @@
+Parei aqui: https://www.postgresql.org/docs/current/ddl-constraints.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------/Tokens\--------------
+Tokens = palavra-chave, identificador, identificador entre aspas, literal ou símbolos;
+São separados por espaços, tabulções e/ou linhas.
+token1 token2 tokken3 ...token4
+Palavra-chave = select, update ou values
+identificadores = my_table, my_database
+
+----------------/Constantes\--------------
+----------------/Comentários\--------------
+--Este é um comentário SQL padrão
+/* comentário de várias linhas 
+ * com aninhamento: /* comentário de bloco aninhado */ 
+ */
+
+----------------/Expressões de valor\--------------
+Coluna - correlation(nome_tabela).columnname
+Parâmetros posicionais - CREATE FUNCTION dept(texto) RETURNS dept AS $$ SELECT * FROM dept WHERE nome = $1 $$ LANGUAGE SQL; - '$1' referência o primeiro parâmetro da função
+Subscritos - ?
+Seleção de campo - ?
+Operadores - ?
+Chamadas de função - ? 
+
+----------------/Funções de chamada\--------------
+Notação posicional - SELECT concat_lower_or_upper('Olá', 'Mundo', verdadeiro); 
+Notação nomeada - SELECT concat_lower_or_upper(a => 'Olá', b => 'Mundo');  
+Notação mista - SELECT concat_lower_or_upper('Olá', 'Mundo', maiúscula => verdadeiro); 
+*A notação posicional não pode vir depois da notação nomeado, visto que ela depende da posição
+
+----------------/Tabela\--------------
+CREATE TABLE *nome_tabela*(
+); - Criar tabela
+DROP TABLE *nome_tabela*; - Apaga a tabela, caso não tenha tabela, dá erro
+DROP TABLE IF EXISTS *nome_tabela*; - Apaga a tabela se existir, caso não tenha tabela, dá erro
+
+----------------/Campo/Coluna/Atributo\--------------
+/\SERIAL - Gera um valor númerico N+1 (Por padrão, começa em 0) e armazena naquela campo para o registro cadastrardo 
+
+
+CREATE TABLE carro{
+    
+}
+Ordem: 
+1 - *nome_da_coluna*
+2 - *tipo_de_dado_da_coluna* DEFAULT 3 
+N > 2 - *valor_padrão_da_coluna*
+N > 2 - *restrição*
+----------------/Restrições\--------------
+São condições que as colunas ou tabelas tem que atender para que algo seja feito
+CHECK: Verificação - Atribui uma condição ao valor do campo, ex: 
+CREATE TABLE products (
+    price numeric CHECK (price > 0)
+);
+
+NOT NULL: não permite que a coluna seja nula, ex:
+CREATE TABLE produtos ( 
+    preço numérico NOT NULL CHECK (preço > 0) 
+);
+
+UNIQUE: garantem que os dados de cada linha da coluna em que foi específicada a restrição sejam exclusivos, valores nulos não se encaixam como únicos, ex:
+Coluna:
+CREATE TABLE produtos ( 
+    product_no integer UNIQUE
+);
+Tabela:
+CREATE TABLE produtos ( 
+    preço numérico, UNIQUE (product_no) 
+);
+Abreviado:
+exemplo CREATE TABLE ( 
+    b inteiro, 
+    c inteiro, UNIQUE (a, c) 
+);
+
+NULLS NOT DISTINCT: indica que valores nulos não são diferentes, ou seja, caso haja a cláusula UNIQUE, ela permitirá o cadastro de duas tuplas nulas, ex:
+Coluna:
+CREATE TABLE produtos ( 
+    product_no integer UNIQUE NULLS NOT DISTINCT
+);
+Tabela:
+CREATE TABLE produtos ( 
+    product_no integer, 
+    UNIQUE NULLS NOT DISTINCT (product_no) 
+);
+
+PRIMARY KEY: indica que N colunas pode ser usado como um identificador exclusivo para linhas na tabela, ou seja, PRIMARY KEY é semelhante a UNIQUE + NOT NULL com outros benefícios, ex:
+
+SEMELHANTE:
+CREATE TABLE produtos ( 
+    product_no integer UNIQUE NOT NULL
+);
+
+Correto 1 Primary key: 
+CREATE TABLE produtos ( 
+    product_no integer PRIMARY KEY
+);
+
+Correto +1 Primary key
+CREATE TABLE example (
+    a integer,
+    b integer,
+    c integer,
+    PRIMARY KEY (a, c)
+);
+
+FOREIGN KEY:
+
+Referenciada: 
+CREATE TABLE products (
+    product_no integer PRIMARY KEY
+);
+
+Referenciando:
+CREATE TABLE orders (
+    order_id integer PRIMARY KEY,
+    product_no integer CONSTRAINT fk_id_products REFERENCES products (product_no)
+);
+
+Encurtado:
+CREATE TABLE pedidos ( 
+    order_id integer PRIMARY KEY, 
+    product_no integer REFERENCES products 
+);
+
+2 Foreign Key:
+CREATE TABLE t1 ( 
+  a integer PRIMARY KEY, 
+  b integer, 
+  c integer, FOREIGN KEY (b, c) REFERENCES other_table (c1, c2) 
+);
+
+Self-referential Foreign key:
+Ex:Se você quiser que as linhas de uma tabela representem os nós de uma estrutura de árvore, você pode escrever
+CREATE TABLE tree ( 
+    node_id integer PRIMARY KEY, 
+    parent_id integer REFERENCES tree, 
+    name text, 
+    ... 
+);
+
+Muitos para Muitos:
+CREATE TABLE products (
+    product_no integer PRIMARY KEY,
+    name text,
+    price numeric
+);
+
+CREATE TABLE orders (
+    order_id integer PRIMARY KEY,
+    shipping_address text,
+    ...
+);
+
+CREATE TABLE order_items (
+    product_no integer REFERENCES products,
+    order_id integer REFERENCES orders,
+    quantity integer,
+    PRIMARY KEY (product_no, order_id)
+);
+
+ON DELETE RESTRICT
+ON DELETE CASCADE
+ON DELETE SET NULL
+ON DELETE SET DEFAULT
+ON DELETE NO ACTION
+
+ON UPDATE RESTRICT
+ON UPDATE CASCADE
+ON UPDATE NO ACTION
+MATCH FULL
+
+EXCLUDE USING...
+
+----------------/Renomear restrições\--------------
+Esclarece as mensagens de erro e permite que você consulte a restrição quando precisar alterá-la, Se você não especificar um nome de restrição dessa maneira, o sistema escolherá um nome para você, ex:
+CREATE TABLE products (
+    price numeric CONSTRAINT *nome_separado* CHECK (price > 0)
+);
+CREATE TABLE products (
+    product_no integer,
+    name text,
+    price numeric,
+    CHECK (price > 0),
+    discounted_price numeric,
+    CHECK (discounted_price > 0),
+    CONSTRAINT valid_discount CHECK (price > discounted_price)
+);
+
+----------------/Restrição de outra coluna\--------------
+CREATE TABLE products (
+    price numeric CHECK (price > 0),
+    discounted_price numeric CHECK (discounted_price > 0),
+    CHECK (price > discounted_price)
+);
+ou
+CREATE TABLE products (
+    price numeric,
+    CHECK (price > 0),
+    discounted_price numeric,
+    CHECK (discounted_price > 0),
+    CHECK (price > discounted_price)
+);
+ou
+CREATE TABLE products (
+    price numeric,
+    CHECK (price > 0),
+    discounted_price numeric,
+    CHECK (discounted_price > 0),
+    CONSTRAINT valid_discount CHECK (price > discounted_price)
+);
+
+
+Dizemos que as duas primeiras restrições são restrições de coluna, enquanto a terceira é uma restrição de tabela porque é escrita separadamente de qualquer definição de coluna. As restrições de coluna também podem ser escritas como restrições de tabela, enquanto o inverso não é necessariamente possível, pois uma restrição de coluna deve se referir apenas à coluna à qual está anexada. ( O PostgreSQL não impõe essa regra, mas você deve segui-la se quiser que suas definições de tabela funcionem com outros sistemas de banco de dados.)
+
+
+----------------/Campo/Coluna/Atributo Especiais\--------------
+Uma coluna gerada é uma coluna especial que sempre é calculada a partir de outras colunas.  Armazenadas - Uma coluna gerada armazenada é computada quando é escrita (inserida ou atualizada) e ocupa o armazenamento como se fosse uma coluna normal.
+Virtuais - Uma coluna virtual gerada não ocupa armazenamento e é computada quando é lida.
+Assim, uma coluna virtual gerada é semelhante a uma visualização e uma coluna gerada armazenada é semelhante a uma visualização materializada (exceto pelo fato de ser sempre atualizada automaticamente).
+Atualmente, o PostgreSQL implementa apenas colunas geradas armazenadas.
+
+Comando: GENERATED ALWAYS AS (*calculo*) *TIPO*
+TIPO = STORED ou ? 
+
+Detalhes em: https://www.postgresql.org/docs/current/ddl-generated-columns.html
+
+CREATE TABLE people (
+    ...,
+    height_cm numeric,
+    height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+---------------------------------------
+                SPEEIA
+---------------------------------------
+Conveção
+Palavras-chaves: MAIUSCULAS
+identificadores: my_table/colunm
+
+Ordem: 
+1 - *nome_da_coluna*
+2 - *tipo_de_dado_da_coluna* DEFAULT 3 
+N > 2 - *valor_padrão_da_coluna*
+N > 2 - *restrição*
+
+product_no integer REFERENCES products (product_no)
+
+"O SQL não diferencia maiúsculas de minúsculas em relação a palavras-chave e identificadores, exceto quando os identificadores são colocados entre aspas duplas para preservar a capitalização (não feito acima)." - https://www.postgresql.org/docs/current/tutorial-table.html
+
+Uma convenção frequentemente usada é escrever palavras-chave em maiúsculas e nomes em minúsculas, por exemplo: - https://www.postgresql.org/docs/current/sql-syntax-lexical.html
+
+Uma tabela pode ter no máximo uma chave primária. (Pode haver qualquer número de restrições exclusivas e não nulas, que são funcionalmente quase a mesma coisa, mas apenas uma pode ser identificada como a chave primária.) A teoria do banco de dados relacional determina que toda tabela deve ter uma chave primária. Esta regra não é imposta pelo PostgreSQL , mas geralmente é melhor segui-la. - https://www.postgresql.org/docs/current/ddl-constraints.html
