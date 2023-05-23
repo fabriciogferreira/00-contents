@@ -1,0 +1,37 @@
+python(""); - Escreve no terminal
+type() - Dizer o tipo de valor
+
+----------/Operadores Aritméticos\----------
++  - Adiçõa
+-  - Subtração
+*  - Multiplicação
+/  - Divisão
+** - Exponenciação
+
+----------/Operadores Bitwise\----------
+Referência: https://wiki.python.org/moin/BitwiseOperators
+x << y
+x >> y
+x & y
+x | y
+~ x
+x ^ y
+
+----------/Americanos\----------
+Odeio os Americanos
+
+----------/Ordem das operações\----------
+()
+**
+* /
++ -
+
+----------/String e Operações\----------
++ -  Concatena váriaveis e textos
+* - Repete váriaveis e textos
+
+----------/String e Operações\----------
+# - Tudo após a serquilha é comentário até o fim da linha
+
+----------/String e Operações\----------
+Depuração
