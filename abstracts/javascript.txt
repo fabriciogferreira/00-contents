@@ -70,10 +70,56 @@ Var book = {
     fat: true
 }
 
+------------/Estrutura condicional\------------
+Obs: Chaves são opcionais quando há 1 instrução por cláusula.
+if (x >= 0) {   // 'if' (significa 'se') inicia a estrutura condicional, '()' onde fica as condições, '{' abre a primeira cláusula
+   return x;    // Se a comparação for verdadeira, retorna 'x'.
+} else {        // '}' fecha a primeira cláusula, 'else' (significa 'senão') se a condição for falsa, executa a segunda claúsula, '{' abre a segunda claúsula  
+return -x;      // Se a comparação for falsa, retorna '-x'. 
+}               // '}' fecha a segunda claúsula
+Funciona da seguinte forma: se (if) isso for verdadeiro (()), faça isso ({}), senão (else), faça isso ({})
+
+------------/Estruturas de repetição\------------
+While:
+while(n > 1) {      - 'while' (significa 'enquanto') inicia a estrutura repetitiva, '()' onde fica as condições, '{' abre a primeira cláusula
+    product *= n;   - Atalho para product = product * n;
+    n--;            - Atalho para n = n – 1
+}                   - '}' fecha a estrutura repetitiva
+Funciona da seguinte forma: enquanto (while) isso for verdadeiro (()), faça isso ({})
+
+for:
+for(i=2; i <= n; i++){  - 'for' (significa 'durante'), '(variaveis; condição; incremento)' regras da estrutura, '{' abre a cláusula
+   product *= i;        - Faz isso a cada vez. {} não é necessário para laços
+}                       - '}' fecha a estrutura repetitiva
+
+
 ------------/Funções\------------
-function plus1(x) { // não é preciso passar o tipo da váriavel
-return x+1;         // Retorna um valor uma unidade maior do que o que foi passado
+function plus1(x) { - não é preciso passar o tipo da váriavel
+return x+1;         - Retorna um valor uma unidade maior do que o que foi passado
 }
+plus1(y)            - Chama a função 'plus1(y)', ela retorna o valor passado mais 1
+var square = function(x) { - As funções são valores e podem ser atribuídas a variáveis
+ return x*x;               - Calcula o valor da função
+};                         - Um ponto e vírgula marca o fim da atribuição
+quare(plus(y))             - 16: chama duas funções em uma única expressão
+
+------------/Métodos\------------
+// Quando funções recebem as propriedades de um objeto, as chamamos de "métodos". Todos os objetos de JavaScript têm métodos:
+var a = [];     - Cria um array vazio
+a.push(1,2,3);  - O método push() adiciona elementos em um array
+a.reverse();    - Outro método: inverte a ordem dos elementos
+
+// Também podemos definir nossos próprios métodos. A palavra-chave "this" se refere ao objeto no qual o método é definido: neste caso, o array de pontos anterior.
+points.dist = function() { // Define um método para calcular a distância entre
+ // pontos
+ var p1 = this[0];              // Primeiro elemento do array que chamamos
+ var p2 = this[1];              // Segundo elemento do objeto "this"
+ var a = p2.x-p1.x;             // Diferença em coordenadas X
+ var b = p2.y-p1.y;             // Diferença em coordenadas Y
+ return Math.sqrt(a*a + b*b);   // O teorema de Pitágoras               
+                                // Math.sqrt() calcula a raiz quadrada
+};
+points.dist() // => 1,414: distância entre nossos 2 pontos
 
 ------------/Arrays\------------
 Uma lista indexada numericamente onde cada posição pode possui um valor
