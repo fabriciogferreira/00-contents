@@ -33,5 +33,42 @@ Odeio os Americanos
 ----------/String e Operações\----------
 # - Tudo após a serquilha é comentário até o fim da linha
 
-----------/String e Operações\----------
-Depuração
+----------/Depuração\----------
+Erro de sintaxe:
+A “sintaxe” refere-se à estrutura de um programa e suas respectivas regras. Por exemplo, os parênteses devem vir em pares correspondentes, então (1 + 2) é legal, mas 8) é um erro de sintaxe.
+
+Erro de tempo de execuçãoa:
+O segundo tipo de erro é o erro de tempo de execução, assim chamado porque o erro não aparece até que o programa seja executado.
+
+Erro semântico:
+O erro é “semântico”, ou seja, relacionado ao significado. Se houver um erro semântico no seu programa, ele será executado sem gerar mensagens de erro, mas não vai fazer a coisa certa.
+
+----------/Notação por ponto\----------
+O objeto de módulo contém as funções e variáveis definidas no módulo. Para acessar uma das funções, é preciso especificar o nome do módulo e o nome da função, separados por um ponto. Este formato é chamado de notação de ponto.
+
+----------/Funções\----------
+def - palavra-chave que indica uma definição de função. 
+Nomenclatura da função: 
+    Não ter uma função com o mesmo nome
+    Não usar palavras-chaves (palavras reservadas)
+    letras, números e sublinhado são legais, mas o primeiro caractere não pode ser um número.
+Regras: 
+    As Instruções precisam ser intendadas para fazer parte da função
+    Todas as aspas (simples e duplas) devem ser “aspas retas”, normalmente encontradas ao lado do Enter no teclado.
+    Para terminar uma função é preciso ter uma linha em branco
+    A definição de função tem que ser executada antes que a função seja chamada.
+def nome_funcao(parametro_1, parametro_2, ..., parametro_n):    - Cabeçalho da função, o resto é o corpo
+    n = 1       - Instrução 1
+    print(n)    - Instrução 2
+
+----------/Funções com retorno\----------
+As funções com retorno, retornam um resultado como final de sua execução através do 'return'.
+
+----------/Funções nulas\----------
+As funções vazias não retornam nada.
+
+----------/Variáveis\----------
+Variável local - Variáveis criadas dentro de estruturas podem ser usadas dentro da estrutura onde foi criado
+
+----------/Parâmetros\----------
+Parâmetro local - Parâmetros criados dentro de estruturas podem ser usadas dentro da estrutura onde foi criado
