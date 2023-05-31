@@ -53,8 +53,6 @@ Operador Ou/Or/||:
 Operador Não/Not/!:
 !(x == y)            - verdadeiro: ! inverte um valor booleano
 
-
-
 ------------/Tipos\------------
 numeroInteiro = 1;      - Apenas números do conjunto dos inteiros
 numeroReias = 3.14;     - Apenas números do conjunto dos reais, só possível armazenar os números deles, então não tem como armazenar o símbolo 'pi" 
@@ -103,3 +101,14 @@ var data ={                     - Um objeto com duas propriedades
     trial2: [[2, 3], [4, 5]],   - Segunda propriedade
 };
 
+
+Fazer trabalho prático da matéria de Redes
+Fazer trabalho de C# da matéria de Sistemas para Desktop
+Trabalho de final do TCC
+Fazer diagramas de sequência
+Comprar luva
+Comprar marmitas
+Traduzir termômetro
+Fazer texto do estilo arquitetural 2-tier no TCC
+Fazer texto do padrão arquitetural MVC no TCC
+Criar portifólio e hospedar no GitHub Pages
