@@ -1,0 +1,4 @@
+Linguagem de programação
+    Estrutura léxica: A estrutura léxica de uma linguagem de programação é o conjunto de regras elementares que especificam o modo de escrever programas nessa linguagem. É a sintaxe de nível mais baixo de uma linguagem; especifica detalhes de como são os nomes de variáveis, os caracteres delimitadores para comentários e como uma instrução do programa é separada da seguinte.
+        Conjunto de caracteres: são os caracteres que a linguagem suporta para se escrever na linguagem
+        Case sensitive: Define se os caracteres em estado minuscula e maiscula fazem diferença na hora de identificar os comando da linguagem. Por exemplo, caso seja case sensitive, ela diferencia maisculas de minuscula.

@@ -1,4 +1,127 @@
-//Tudo após duas barras é um comentário e ele vai até a primeira quebra de linhas
+Estrutura léxica:
+    Conunto de caracteres: Unicode
+        Case sensitive: Sim
+        Espaços em branco: Ignorados
+            " " == tabulação (\u0009), tabulação vertical (\u000B), avanço de página (\u000C), espaço não separável (\u00A0), marca de ordem de byte (\uFEFF) e qualquer caractere unicode da categoria Zs.
+        Quebra de linhas: Ignorados
+            ";" == avanço de linha (\u000A), retorno de carro (\u000D), separador de linha (\u2028) e separador de parágrafo (\u2029).
+        Escapes Unicode:
+            Alguns Hardwares e softwares não conseguem exibir ou introduzir o conjunto completo de caracteres Unicode. O JS define sequências especiais de seis caracteres ASCII para representar qualquer código Unicode de 16 bits. 
+            Estrutura: \u...
+                ... == hexadecimal
+                ... == Números, A-F e a-f
+            Permitido em:
+                Strings literais: Sim
+                Expressões regulares literais: Sim
+                Identificadores: Sim
+                Palavras-chaves: Não
+                Comentários: Sim, mas como os comentários são ignorados, eles são tratados como caracteres ASCII nesse contexto e não são interpretados como Unicode.
+                Exemplo:
+                    "café" === "caf\u00e9" // => true
+        Normalização:
+            Use escapes unicodes somente quando o hardware e/ou software não suporta o caracter "normal". JavaScript presume que o código-fonte que está interpretando já foi normalizado e não tenta normalizar identificadores, strings nem expressões regulares.
+    Comentários:
+        //: entre '//' e o final da linha é comentário
+        /**/: entre '/*' e '*/' é comentário
+    Literais:
+        É um valor de dados que aparece diretamente em um programa.
+            12              - O número doze
+            1.2             - O número um ponto dois
+            "hello world"   - Uma string de texto
+            'Hi'            - Outra string
+            true            - Um valor booleano
+            false           - O outro valor booleano
+            /javascript/gi  - Uma "expressão regular" literal (para comparação de padrões)
+            null            - Ausência de um objeto
+    Identificadores:
+        Um identificador é simplesmente um nome que são usados para dar nomes a variáveis e funções e para fornecer rótulos para certos laços no código JavaScript. 
+        Estrtura:
+            Letra...
+            _...
+            $...
+            ... = Letras, digitos, sublinhados e/ou cifrões
+        Conevenção:
+            letras e digitos
+        Palavras reservadas:
+            JavaScript reserva vários identificadores como palavras-chave da própria linguagem. Você não pode usar essas palavras como identificadores em seus programas:
+    Pontos e virgulas:
+        Você pode usar para marcar explicitamente, mas não é obrigatório, exceto em algumas exceções.
+            Final de programa = Não necessário
+            Próximo sinal '}' = Não necessário
+            Linhas separadas = Não necessário
+        Você pode omitir, mas ter que utilizar quando necessário
+        Minha opinião: Parece ter muito mais vantagens utilizar ';'
+
+Tipos, valores e váriaveis:
+    Tipos:
+        Primitivos:
+            Number
+            Sting
+            Boolean
+            Null
+            Undefined
+        Objeto: é um conjunto de propriedades, em que cada propriedade tem um nome e um valor (ou um valor primitivo, como um número ou string, ou um objeto).
+            Array
+            Function
+            Date
+            RegExp
+            Error
+
+Sites:
+    JavaScript progressivo
+    dojo puzzles
+
+Exercícios
+    Calculadora simple
+    Cronômetro
+    Lista de tarefas
+    Joga da velha
+    Quiz
+    Jogo da forca
+    Galeria em slide
+    Jogo da memória
+    Despertador
+    Calculadora de gorjetas
+    Contador de caracteres
+    Copiador de textos
+    Dicionário em inglês
+    Conversor de moeda
+    updload de imagens
+    Redimensionador de textos
+    Detector de browser usado
+    Scroll smooth
+    Modal simples
+    Contador de likes animado
+    Efeito de escrita animado
+    Input limitador de caracteres
+    Formulário de pesquisa com autocomplete
+    Analisador de força de senha
+    Autocomplete de palavras
+    Jogo de cobrinha(snake)
+    Tabs simples
+    Contador de palavras
+    Página com light/dark mode
+    Muda cor de background
+    Galeria de NFTs
+    Cartão com glassmorphism
+    Nested Comments
+    Pricing Component
+Games
+    tower blocks
+    2048
+    Flip-memory
+    Snake Games
+    The cube
+
+React
+    Gerador de piadas
+    Jogo da velha
+    Validação de formato
+    Pokedex
+    previsão do tempo
+
+
+
 
 ------------/Termos\------------
 Expressão: Uma expressão é uma frase em JavaScript que pode ser avaliada para produzir um valor. O uso de . e [] para se referir ao valor de uma propriedade de objeto ou a um elemento de array é uma expressão, por exem

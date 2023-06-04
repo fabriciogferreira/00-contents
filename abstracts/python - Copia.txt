@@ -1,0 +1,53 @@
+https://www.instagram.com/p/CfRjE_suApr/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==
+https://www.instagram.com/p/Ce66pFWtlrk/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==
+
+
+
+
+HTML, CSS, JavaScript
+    frontend mentor
+    coderbyte
+    codewell
+    javascript30
+    cssbatle
+
+Exercícios:
+    Atribuição
+        Swap: troque o valor de a por b e b para a
+            https://www.instagram.com/p/CbFcn51L5Ae/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==
+    Estrtura de repetição
+        Ex1:
+            12344321
+            123**321
+            12****21
+            1******1
+        Ex2: x in square
+            *****
+            ** **
+            * * *
+            ** ** 
+            *****
+        Ex3: Reverse number
+    JavaScript, css e html
+        Calculadora
+        Drawing app
+        Progress steps
+        User search filter
+        Notes 
+    Django
+        CRUD - Registrar e Logar
+        Sistema de updload
+        Envio de email
+        Music Player Aplication
+        Chat em python
+            https://www.youtube.com/watch?v=PjiDem422OI
+        Weather predicition: https://www.youtube.com/watch?v=lyeK0aE_qRg
+        Construtor de curriculo
+        Quiz
+
+
+
+TCC
+https://www.instagram.com/p/CejIJBQtl_G/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==
+https://www.instagram.com/p/CeUlndMsnRT/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==
+https://www.instagram.com/p/CdssK9Et5jx/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==

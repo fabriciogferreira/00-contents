@@ -486,3 +486,20 @@ Retirando a margem e espaçamento interno de todas as tag's:
 Existem declaraçõesque funcionam somente para algumas ou uma tag, como é caso da lista:
 list-style-type: '\2714\00A0'; <- muda o símbolo dos itens da lista
 list-style-position: inside; <- considera o símbolo dos itens como parte do conteúdo
+
+
+Instagram Transformado:
+Use shothands ao inves de quebrar a propriedade em várias propriedades
+Use o padrão "Don't repeat yourself", se duas tags tem as mesmas propriedades, não as divida, escreva as propriedades apenas uma vez
+Use fontes reservas, exemplo: p{font-family: Arial, sans-serif;}
+
+
+Sites para treino:
+    Codier
+    Dev Mentor
+    100 Days CSS
+    FlexBox frogy
+
+
+Resumo flex-blox:
+https://www.instagram.com/p/CejymQxuSqf/?utm_source=ig_web_copy_link&igshid=MmJiY2I4NDBkZg==

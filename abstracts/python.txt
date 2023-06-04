@@ -1,3 +1,10 @@
+Sites:
+    codewars
+    Exercism
+    HackerRANK
+    GRASSHOPPER
+    py.checkio.org
+
 python(""); - Escreve no terminal
 type() - Dizer o tipo de valor
 

@@ -65,3 +65,8 @@ git branch -v: lista as branchs do repositório atual com os commits associados
 
 
 Controlando veresões com Git e GitHub - Alexandre Aquiles e Rodrigo Ferreira
+
+Jogar:
+TwilioQuest forest of open source
+Oh my git
+Learn Gir branching
