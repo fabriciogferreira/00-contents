@@ -54,6 +54,8 @@ Estrutura léxica:
 
 Tipos, valores e váriaveis:
     Tipos:
+        Imutaveis e mutaveis
+        Com métodos e sem métodos
         Primitivos:
             Number
             Sting
@@ -66,7 +68,86 @@ Tipos, valores e váriaveis:
             Date
             RegExp
             Error
+    Números:
+        Ponto flutuante:
+            Max: ±1,7976931348623157 × 10^308
+            Min: ±5 × 10^−324.
+            Notação: Reconheçe
+                Estrutura: 1.3232131(E ou e)(- ou +)32
+        Inteiros: 
+            Max: −9007199254740992 (−2^53) 
+            Min: 9007199254740992 (2^53),
+            Exeções: Note, entretanto, que certas operações em JavaScript (como indexação de arrays e os operadores bit a bit descritos no Capítulo 4) são efetuadas com inteiros de 32 bits.
+            Hexadecimal: Reconheçe
+                Estrutura:
+                    0x...
+                    0X...
+            Octal: Reconheçe, mas é altamente não recomendado utilizar
+                Estrutura:
+                    0...
 
+Operadores aritméticos:
+    + - Adição
+    – - Subtração
+    * - Multiplicação
+    / - Divisão 
+    % - Módulo (resto da divisão).
+    Erros:
+        Não gera erros em casos de estouro, estouro negativo ou divisão por zero.
+        Estouro: Quando o resultado de uma operação numérica é maior do que o maior número representável (estouro).
+            Resultado > limite          - Retorna Infinity
+            Resultado < limite negativo - Retorna -Infinity
+                Para saber se é finito, use isFinite() retorna Verdadeiro, o argumento for um número diferente de NaN, Infinity ou -Infinity
+            Exceção:
+                0/0 - Retorna NaN (not-a-number)
+                (-)infinity/(-)infinity - Retorna NaN
+                sqrt(-N) - Retorna NaN
+                3*"f3" - Retorna NaN operadores aritméticos com operandos não numéricos que não podem ser convertidos em números.
+                Para saber se é NaN compara x != x, vai retorna verdadeiro caso seja, ou use isNaN, retorna verdadeiro caso seja NaN ou seja um valor não numérico
+        Estouro Negativo: O estouro negativo ocorre quando o resultado de uma operação numérica é mais próximo de zero do que o menor número representável.
+            Retorna -0 ou 0
+                var zero = 0;       - Zero normal
+                var negz = -0;      - Zero negativo
+                zero === negz       - => verdadeiro: zero e zero negativo são iguais
+                1/zero === 1/negz   - => falso: infinito e -infinito não são iguais
+
+
+Datas e horas
+    var then = new Date(2010, 0, 1);// O 1o dia do 1o mês de 2010
+    var later = new Date(2010, 0, 1,// O mesmo dia, às 5:10:30 da tarde, hora local 17, 10, 30);
+    var now = new Date();       - A data e hora atuais
+    var elapsed = now – then;   - Subtração de data: intervalo em milissegundos
+    later.getFullYear()         - => 2010
+    later.getMonth()            - => 0: meses com base em zero
+    later.getDate()             - => 1: dias com base em um
+    later.getDay()              - => 5: dia da semana. 0 é domingo, 5 é sexta-feira.
+    later.getHours()            - => 17: 5 da tarde, hora local
+    later.getUTCHours()         - Horas em UTC; depende do fuso horário
+    later.toString()            - => "Sexta-feira, 01 de janeiro de 2010, 17:10:30 GMT-0800 (PST)"
+    later.toUTCString()         - => "Sábado, 02 de janeiro de 2010, 01:10:30 GMT"
+    later.toLocaleDateString()  - => "01/01/2010"
+    later.toLocaleTimeString()  - => "05:10:30 PM"
+    later.toISOString()         - => "2010-01-02T01:10:30.000Z"; somente ES5
+
+Bibliotecas:
+    Math:
+        Math.pow(2,53)          - => 9007199254740992: 2 elevado à potência 53
+        Math.round(.6)          - => 1.0: arredonda para o inteiro mais próximo
+        Math.ceil(.6)           - => 1.0: arredonda para cima para um inteiro
+        Math.floor(.6)          - => 0.0: arredonda para baixo para um inteiro
+        Math.abs(-5)            - => 5: valor absoluto
+        Math.max(x,y,z)         - Retorna o maior argumento
+        Math.min(x,y,z)         - Retorna o menor argumento
+        Math.random()           - Número pseudoaleatório x, onde 0 <= x < 1.0
+        Math.PI                 - π: circunferência de um círculo / diâmetro
+        Math.E                  - e: A base do logaritmo natural
+        Math.sqrt(3)            - A raiz quadrada de 3
+        Math.pow(3, 1/3)        - A raiz cúbica de 3
+        Math.sin(0)             - Trigonometria: também Math.cos, Math.atan, etc.
+        Math.log(10)            - Logaritmo natural de 10
+        Math.log(100)/Math.LN10 - Logaritmo de base 10 de 100
+        Math.log(512)/Math.LN2  - Logaritmo de base 2 de 512
+        Math.exp(3)             - Math.E ao cubo
 Sites:
     JavaScript progressivo
     dojo puzzles

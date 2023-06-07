@@ -244,7 +244,6 @@ Arquivo CSS:
 As pseudo classes possuem declarações que definem a como a mudança de estado deve se comportar:
 transition-duration: 0.5s; <- define quanto tempo vai levar para sair de um estado e ir para outro 
 
-    
 Pseudo-elementos:
 Os pseudo elementos, são elementos que não tem no código HTML, mas que são colocados visualmente através de código HTML. Ele é usado da mesma forma que os pseudo-classes, a diferença é que para utilizalos usa-se '::' ao invés de ':'.
 Provavelmente os dois pseudo-elementos mais conhecidos são o 'before' e o 'after', pelo nome, você já deve imaginar o que eles fazem.
