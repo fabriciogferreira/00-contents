@@ -44,6 +44,8 @@ Estrutura léxica:
             letras e digitos
         Palavras reservadas:
             JavaScript reserva vários identificadores como palavras-chave da própria linguagem. Você não pode usar essas palavras como identificadores em seus programas:
+                Colocar as palvras reservadas aqui
+                Considerar as propriedades do objeto global como palavra reservada
     Pontos e virgulas:
         Você pode usar para marcar explicitamente, mas não é obrigatório, exceto em algumas exceções.
             Final de programa = Não necessário
@@ -152,54 +154,141 @@ Sites:
     JavaScript progressivo
     dojo puzzles
 
-Exercícios
-    Calculadora simple
-    Cronômetro
-    Lista de tarefas
-    Joga da velha
-    Quiz
-    Jogo da forca
-    Galeria em slide
-    Jogo da memória
-    Despertador
-    Calculadora de gorjetas
-    Contador de caracteres
-    Copiador de textos
-    Dicionário em inglês
-    Conversor de moeda
-    updload de imagens
-    Redimensionador de textos
-    Detector de browser usado
-    Scroll smooth
-    Modal simples
-    Contador de likes animado
-    Efeito de escrita animado
-    Input limitador de caracteres
-    Formulário de pesquisa com autocomplete
-    Analisador de força de senha
-    Autocomplete de palavras
-    Jogo de cobrinha(snake)
-    Tabs simples
-    Contador de palavras
-    Página com light/dark mode
-    Muda cor de background
-    Galeria de NFTs
-    Cartão com glassmorphism
-    Nested Comments
-    Pricing Component
-Games
-    tower blocks
-    2048
-    Flip-memory
-    Snake Games
-    The cube
+Texto
+    Uma string é uma sequência ordenada imutável de valores de 16 bits,
+    Strings listerais
+        Declaração: O conteúdo deve ficar entre aspas simples ou aspas duplas, elas podem se conter
+        Várias linhas em uma linha: Use o \n para definir uma quebra de linha
+        Várias linhas: Basta termianar cada linha com '\'
+    Escapes:
+        \n  - nova linha (\u000A)
+        \'  - caracter de apóstrofe ou aspas simples dentro de strins literais que são delimitadas por aspas simples (\u0027)
+        \0  - O caractere NUL (\u0000)
+        \b  - Retrocesso (\u0008)
+        \t  - Tabulação horizontal (\u0009)
+        \v  - Tabulação vertical (\u000B)
+        \f  - Avanço de página (\u000C)
+        \r  - Retorno de carro (\u000D)
+        \"  - Aspas duplas (\u0022)
+        \\  - Barra invertida (\u005C)
+        \x  - XX O caractere Latin-1 especificado pelos dois dígitos hexadecimais XX
+        \u  - XXXX O caractere Unicode especificado pelos quatro dígitos hexadecimais XXXX
+    Concatenar
+        Para basta colocar um '+' entre strings literais e/ou variaveis
+    Propriedades
+        var s = "hello, world"  - => Começa com um texto.
+        s.charAt(0)             - => "h": o primeiro caractere.
+        s.charAt(s.length-1)    - => "d": o último caractere.
+        s.substring(1,4)        - => "ell": o 2o, 3o e 4o caracteres.
+        s.slice(1,4)            - => "ell": a mesma coisa
+        s.slice(-3)             - => "rld": os últimos 3 caracteres
+        s.indexOf("l")          - => 2: posição da primeira letra l.
+        s.lastIndexOf("l")      - => 10: posição da última letra l.
+        s.indexOf("l", 3)       - => 3: posição do primeiro "l" em ou após 3
+        s.split(", ")           - => ["hello", "world"] divide em substrings
+        s.replace("h", "H")     - => "Hello, world": substitui todas as instâncias
+        s.toUpperCase()         - => "HELLO, WORLD"
+        Lembre-se de que as strings são imutáveis em JavaScript. Métodos como replace() e toUpperCase() retornam novas strings
+        Obs: caso os conteúdos das strings literais e/ou váriaveis sejam números, ele irá somar
 
+Booleano
+    Sim ou não, ligado ou desligado, verdadeiro ou falso, true ou false.
+    Verdadeiro
+        É 'true'
+        Valores convertidos:
+            Qualquer outro valor diferente dos valores de false
+    Falso
+        É 'false'
+        Valores convertidos:
+            undefined
+            null
+            0
+            -0
+            NaN
+            "" // a string vazia
+Null
+    null é uma palavra-chave da linguagem avaliada com um valor especial, normalmente utilizado para indicar a ausência de um valor.
+    Para comparar null, use o '=='
+    Null não possui propriedades ou métodos
+Undefined
+    O valor indefinido representa uma ausência de valor mais profunda. 
+    Para comparar undefined, use o '==='
+    Undefined não possui propriedades ou métodos
+    Existe quando:
+        Variáveis que não foram inicializadas.
+        Quando se consulta o valor de uma propriedade de objeto ou elemento de array que não existe.
+        Funções que não têm valor de retorno
+        Valor de parâmetros de função quando os quais nenhum argumento é fornecido.
+O objeto global
+    Quando o interpretador JavaScript começa (ou quando um navegador Web carrega uma nova página), ele cria um novo objeto global e dá a ele um conjunto inicial de propriedades que define:
+        propriedades globais, como undefined, Infinity e NaN
+        funções globais, como isNaN(), parseInt() e eval().
+        funções construtoras, como Date(), RegExp(), String(), Object() e Array()
+        objetos globais, como Math e JSON
+    No código de nível superior – código JavaScript que não faz parte de uma função –, pode-se usar a palavra-chave this de JavaScript para se referir ao objeto global:
+        var global = this;  - Define uma variável global para se referir ao objeto global
+    o objeto Window serve como objeto global para todo código JavaScript contido na janela do navegador que ele representa. Esse objeto global Window tem uma propriedade de autoreferência window que pode ser usada no lugar de this para se referir ao objeto global.
+
+Objetos wrapper (pg 41 a 43)
+    Os objetos JavaScript são valores compostos: eles são um conjunto de propriedades ou valores nomeados.
+    Ao usarmos a notação . fazemos referência ao valor de uma propriedade.
+    Quando o valor de uma propriedade é uma função, a chamamos de método.
+    Strings não objetos apesar de "ter" propriedades e métodos, quando você refere uma propriedade da string, ele converte o valor da string em um objeto que herda métodos da string e é utilizado para solucionar a referência da propriedade. Uma vez solucionada a propriedade, o objeto recentemente criado é descartado. (As implementações não são obrigadas a criar e descartar esse objeto transitório – contudo, devem se comportar como se fossem.). Isso também vale para números e booleanos
+    Os objetos temporários criados ao se acessar uma propriedade de uma string, número ou valor booleano são conhecidos como objetos empacotadores (wrapper) e ocasionalmente pode ser necessário diferenciar um valor de string de um objeto String ou um número ou valor booleano de um objeto Number ou Boolean.
+    Basta saber que string, número e valores booleanos diferem de objetos pois suas propriedades são somente para leitura e que não é possível definir novas propriedades neles.
+    Criar objetos wrapper:
+        var s = "test", n = 1, b = true;    - Uma string, um número e um valor booleano.
+        var S = new String(s);              - Um objeto String
+        var N = new Number(n);              - Um objeto Number
+        var B = new Boolean(b);             - Um objeto Boolean
+
+Valores primitivos imutáveis e referências de objeto mutáveis
+    valores primitivos (undefined, null, booleanos, números e strings) são imutáveis
+    objetos/tipos de referência (incluindo arrays e funções) são mutáveis
+    Objetos não são comparados por valor:
+        var o = {x:1}, p = {x:1};   - Dois objetos com as mesmas propriedades
+        o === p                     - => falso: objetos distintos nunca são iguais
+        var a = [], b = [];         - Dois arrays vazios diferentes
+        a === b                     - => falso: arrays diferentes nunca são iguais
+    Usando essa terminologia, os valores de objeto são referências e dizemos que os objetos são comparados por referência: dois valores de objeto são iguais se, e somente se, eles se referem ao mesmo objeto básico.
+        var a = []; - A variável a se refere a um array vazio.
+        var b = a;  - Agora b se refere ao mesmo array.
+        b[0] = 1;   - Muda o array referido pela variável b.
+        a[0]        - => 1: a mudança também é visível por meio da variável a.
+        a === b     - => verdadeiro: a e b se referem ao mesmo objeto; portanto, são iguais.
+    Nova cópia de um objeto ou array:
+        var a = ['a','b','c']; // Um array que queremos copiar
+        var b = []; // Um array diferente no qual vamos copiar
+        for(var i = 0; i < a.length; i++) { // Para cada índice de []
+            b[i] = a[i]; // Copia um elemento de a em b
+        }
+    Para comparar arrays ou objetos, devemos comparar seus elementos e propriedades:
+        function equalArrays(a,b) {
+            if (a.length != b.length) return false; - Arrays de tamanho diferente não são iguais
+            for(var i = 0; i < a.length; i++)       - Itera por todos os elementos
+                if (a[i] !== b[i]) return false;    - Se algum difere, os arrays não são iguais
+            return true;                            - Caso contrário, eles são iguais
+        }
+
+Conversões (pg 45)
+Conversões e igualdade
+Conversões Explícitas (46)
+    Number("3")     - => 3
+    String(false)   - => "false" Ou use false.toString()
+    Boolean([])     - => verdadeiro
+    Object(3)       - => novo Number(3)
+Conversões de objeto para valores primitivos
+
+"7" * "4" = 28
+
+não há como alterar (ou “mudar”) um valor primitivo.
 React
     Gerador de piadas
     Jogo da velha
     Validação de formato
     Pokedex
     previsão do tempo
+        
 
 
 
@@ -352,13 +441,18 @@ var data ={                     - Um objeto com duas propriedades
 };
 
 
-Fazer trabalho prático da matéria de Redes
-Fazer trabalho de C# da matéria de Sistemas para Desktop
-Trabalho de final do TCC
-Fazer diagramas de sequência
-Comprar luva
-Comprar marmitas
-Traduzir termômetro
-Fazer texto do estilo arquitetural 2-tier no TCC
-Fazer texto do padrão arquitetural MVC no TCC
-Criar portifólio e hospedar no GitHub Pages
+
+Entidade                
+    Algo de interesse da comunidade de usuários de banco de dados. Os exemplos incluem clientes, peças, localizações geográficas, etc.
+Coluna                  
+    Uma parte individual dos dados armazenados em uma tabela.
+Linha                   
+    Um conjunto de colunas que juntas descrevem completamente uma entidade ou alguma ação em uma entidade. Também chamado de registro.
+Tabela                  
+    Um conjunto de linhas, mantido na memória (não persistente) ou no armazenamento permanente (persistente).
+Conjunto de resultados  
+    Outro nome para uma tabela não persistente, geralmente o resultado de uma consulta SQL.
+Chave primária          
+    Uma ou mais colunas que podem ser usadas como um identificador exclusivo para cada linha em uma tabela.
+Chave estrangeira       
+    Uma ou mais colunas que podem ser usadas juntas para identificar uma única linha em outra tabela

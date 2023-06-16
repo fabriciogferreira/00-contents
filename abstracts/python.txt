@@ -14,6 +14,8 @@ type() - Dizer o tipo de valor
 *  - Multiplicação
 /  - Divisão
 ** - Exponenciação
+%  - Resto
+// - Divisão descartando a parte fracionária
 
 ----------/Operadores Bitwise\----------
 Referência: https://wiki.python.org/moin/BitwiseOperators
@@ -23,9 +25,6 @@ x & y
 x | y
 ~ x
 x ^ y
-
-----------/Americanos\----------
-Odeio os Americanos
 
 ----------/Ordem das operações\----------
 ()
@@ -79,3 +78,10 @@ Variável local - Variáveis criadas dentro de estruturas podem ser usadas dentr
 
 ----------/Parâmetros\----------
 Parâmetro local - Parâmetros criados dentro de estruturas podem ser usadas dentro da estrutura onde foi criado
+
+Expressões booleanas
+    Qualquer número que não seja zero é interpretado como True
+    Operadores:
+        and - Operado lógico de
+        or - Operado lógico de
+        not - Operado lógico de negação

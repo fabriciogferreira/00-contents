@@ -50,6 +50,14 @@ git remote rename nomeAtualServidor novoNomeServidor: renomeia o nome do reposit
 git remote set-url servidor file://novoIP/caminho/nomeServidor.git: define o novo IP do repositório remoto interno
 git branch: lista as branchs do repositório atual
 git branch -v: lista as branchs do repositório atual com os commits associados
+git log --parents: mostra o histórico de alterações com o código dos pais de cada commit
+git log --decorate: mostra para qual o master está apontando
+git log --oneline --decorate --parents: mostra o histórico de alterações em linha com código da dos pais de cada commit e para qual commit a master está apontando
+git branch nomeBranch: criar uma branch
+git checkout nomeBranch: mudar para uma branch 
+git checkout -b nomeBranch: cria e muda para a branch criada 
+git checkout -d nomeBranch: deleta uma branch que não tenha algum commit
+git checkout -D nomeBranch: deleta uma branch que tenha algum commit
 
 
 
