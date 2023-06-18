@@ -1,20 +1,72 @@
+wiki: https://wiki.postgresql.org/wiki/Main_Page
+Tutoriais e recursos: https://www.postgresql.org/docs/online-resources/
+Books: https://www.postgresql.org/docs/books/
+FAQs:
+    https://wiki.postgresql.org/wiki/Category:FAQ
+    https://wiki.postgresql.org/wiki/Developer_FAQ
+    https://wiki.postgresql.org/wiki/FAQ
+    https://wiki.postgresql.org/wiki/Frequently_Asked_Questions
+    https://wiki.postgresql.org/wiki/Todo
+    
+
+Outros:
+    https://dsf.berkeley.edu/postgres.html
+
+Referências:
+    https://www.postgresql.org/docs/current/
+        Bibliográfia da referência:
+            https://www.postgresql.org/docs/current/biblio.html#STON86
+
+
+
+
+
+--------/O que é o PostgreSQL?\---------
+    Ele é um SGBD (DBMS) Objeto-Relacional (SGBDOR) (ORDBMS) baseado no BD (DB) Postgres
+
+--------/Convenções\---------
+    []      - Opcionais
+    {} ou | - Deve escolher alternativa
+    ...     - O elemento anterior pode ser repetido
+    =>      - Símbolo pelo qual os comandos SQL são precedidos no prompt
+    $       - Símbolo pelo qual os comandos SQL são precedidos no shell
+
+--------/BUGs\---------
+    Passo a Passo:
+        Como fazer: https://www.postgresql.org/docs/current/bug-reporting.html
+
+--------/Criar banco de dados\---------
+    Shell: 
+        createdb {nomeBD}
+        createdb            - cria um banco de dados com o nome de usuário atual
+        
+--------/Remover/excluir/deletar banco de dados\---------
+    Shell:
+        dropdb {nomBD}
+
+--------/Acessar banco de dados\---------
+    Shell:
+        psql {nomeBD}
+--------/Comados\---------
+    SELECT version(); - Mostra a versão do PostgreSQL e mais algumas informações
+     
+
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+--------/\---------
+
+
+
+
 Parei aqui: https://www.postgresql.org/docs/current/ddl-constraints.html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

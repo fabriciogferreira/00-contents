@@ -26,6 +26,14 @@ x | y
 ~ x
 x ^ y
 
+----------/Operadores Relacionais\----------
+==  - Igualdade
+!=  - Diferente
+>   - Maior
+<   - Menor
+>=  - Maior ou Igual
+<=  - Menor ou Igual
+
 ----------/Ordem das operações\----------
 ()
 **
@@ -79,9 +87,52 @@ Variável local - Variáveis criadas dentro de estruturas podem ser usadas dentr
 ----------/Parâmetros\----------
 Parâmetro local - Parâmetros criados dentro de estruturas podem ser usadas dentro da estrutura onde foi criado
 
-Expressões booleanas
+----------/Expressões booleanas\----------
     Qualquer número que não seja zero é interpretado como True
     Operadores:
         and - Operado lógico de
         or - Operado lógico de
         not - Operado lógico de negação
+
+----------/Estrutura condicional\----------
+if 'condição':
+    'comandos a ser executado caso seja verdadeiro'
+    pass - não faz nada, caso você precise deixar uma estrutura em branco
+
+Estrutura condicional alternativa:
+if 'condição':
+    'comandos a ser executado caso seja verdadeiro'
+else:
+    'comandos a ser executado caso seja falso'
+
+Estrutura condicional encadeada/if encadeado:
+if 'condição':
+    'comandos a ser executado caso essa seja verdadeiro'
+eleif:
+    'comandos a ser executado caso essa seja verdadeiro'
+
+Estrutura condicional aninhada:
+if 'condição':
+    'comandos'
+    if 'condição':
+        'comandos'
+    eleif:
+        'comandos'
+eleif:
+    'comandos'
+
+
+----------/Recursividade\----------
+É ato de chamar uma função em si mesmo
+
+----------/Input\-----------
+A função 'input()' permite que o usuário digite algo, você pode passar uma mensagem como parâmetro
+\n = indica ao python para quebrar a linha
+
+----------/Depuração\-----------
+Úteis:
+    Que tipo de erro foi
+    Onde ocorreu
+
+----------/Retorno\-----------
+Algo que retorna da função que você chama
