@@ -17,6 +17,7 @@ Referências:
         Bibliográfia da referência:
             https://www.postgresql.org/docs/current/biblio.html#STON86
 
+psql: https://www.postgresql.org/docs/current/app-psql.html
 
 
 
@@ -37,7 +38,7 @@ Referências:
 
 --------/Criar banco de dados\---------
     Shell: 
-        createdb {nomeBD}
+        createdb {nome_bd}
         createdb            - cria um banco de dados com o nome de usuário atual
         
 --------/Remover/excluir/deletar banco de dados\---------
@@ -48,23 +49,99 @@ Referências:
     Shell:
         psql {nomeBD}
 --------/Comados\---------
-    SELECT version(); - Mostra a versão do PostgreSQL e mais algumas informações
-     
+    SELECT version();   - Mostra a versão do PostgreSQL e mais algumas informações
+    mydb=> \h           - Ajuda
+    mydb=> \q           - Sair
+    \?                  - Mais comandos
 
+--------/Criar Tabela\---------
+    CREATE TABLE nome_tabela{
+        -- Colunas:
+        city varchar(80),
+        temp_lo int,        -- low temperature
+        temp_hi int,        -- high temperature
+        prcp real,          -- precipitation
+        date date
+    };
+
+--------/Comentários\---------
+    -- - Permite comentário após --
+
+--------/Tipos\---------
+    int             - (Tipo Padrão do SQL) Tipo inteiro, aceita valores que não tem parte fracionária
+    smallint        - (Tipo Padrão do SQL) O mesmo do tipo inteiro,só que aceita um intervalo menor de tempo
+    real            - (Tipo Padrão do SQL) Ponto flutuante, aceita números com parte fracionária
+    double precision- (Tipo Padrão do SQL)
+    char()          - (Tipo Padrão do SQL) Texto com quantidade exata de characteres, não pode colocar menos nem mais
+    varchar()       - (Tipo Padrão do SQL) 
+    date            - (Tipo Padrão do SQL)
+    time            - (Tipo Padrão do SQL)
+    timestamp       - (Tipo Padrão do SQL)
+    inteval         - (Tipo Padrão do SQL)
+    point           - (Tipo do PostgreSQL)
+
+--------/Remover/excluir/deletar tabela\---------
+    DROP TABLE nomeTabelas;
+
+--------/Inserindo dados\---------
+    1ª Version: INSERT INTO nome_table (nome_coluna_1, nome-coluna_2) VALUES ('dado_colunas_tipo_texto', dado_colunas_do_tipo_numeros)
+    2ª Version: INSERT INTO nome_table (nome_coluna_2, nome-coluna_1) VALUES (dado_colunas_do_tipo_numeros, 'dado_colunas_tipo_texto')
+    3ª Version: INSERT INTO nome_table VALUES ('dado_colunas_tipo_texto', dado_colunas_do_tipo_numeros)
+
+--------/Copiar dados do texto\---------
+    COPY nome_tabela FROM 'src_arquivo/arquivo.txt';
+
+--------/Consultara tabela\---------
+--------/Selecionar/Extrair dados\---------
+    *   - Abreviação para 'Todas as colunas'
+    SELECT * FROM nome_table1, nome_tabela2;
+    
+--------/Expressões\---------
+    SELECT cidade, (tem_hi + temp_lo) / 2 [AS nome_coluna], data FROM clima; 
+
+--------/Consultando tabela com filtro\---------
+    SELECT * FROM clima [WHERE cidade = 'San Francisco AND prcp > 0,0]; 
+
+--------/Ordenar registros da consulta\---------
+    SELECT * FROM clima [ORDER BY nome_coluna1[, nome_coluna2]];
+
+--------/Linha 'duplicadas'\---------
+    *Para o postgres tirar linha duplicadas, os registros precisam ser igual
+    SELECT [DISTINCT] * FROM clima;
+
+--------/Juntar consultas de tabelas\---------
+    SELECT * FROM nome_tabela1 [JOIN nome_tabela2 ON cidade = nome];
+    Resumido:
+        SELECT *  FROM clima, cidades WHERE cidade = nome;
+    Nomes de colunas iguais em diferentes tabelas:
+    SELECT clima.city, clima.temp_lo, clima.temp_hi, clima.prcp, clima.date, cidades.location FROM clima JOIN cidades ON clima.city = cidades.name;
+--------/Juntar consultas de tabelas a esquerda\---------
+    Junta duas consultas e quando não houver dados a direita (segunda tabela mencionada) correpondente ao da esquerda (primeira tabela mencionada) ele retorna mesmo assim os dados do registro a esquerda
+    SELECT * FROM clima LEFT OUTER JOIN cidade ON clima.city = cidade.name;
+
+--------/Juntar consultas de tabelas a direita\---------
+    O mesmo de left outer join só que ao contrário
+    SELECT * FROM clima LEFT OUTER JOIN cidade ON clima.city = cidade.name;
+
+--------/Juntar consultas de tabelas completas\---------
+    É tipo uma junção de left outer join e right outer join, ele trará os dados independente se não houver conrespondências em ambos os lados
+
+--------/Juntar consulta da mesma tabela\---------
+    SELECIONE w1.city, w1.temp_lo AS baixo, w1.temp_hi AS alto, w2.city, w2.temp_lo AS baixo, w2.temp_hi AS alto FROM clima w1 JOIN clima w2 ON w1.temp_lo < w2.temp_lo AND w1.temp_hi > w2.temp_hi;
+
+--------/Abreviação de nomes de tabelas (Aliases)\---------
+    Você pode renomear tabelas para que elas sejam referências de forma mais rápda em uma consulta SQL
+    SELECT * FROM weather w JOIN cities c ON w.city = c.name;
 --------/\---------
 --------/\---------
 --------/\---------
---------/\---------
---------/\---------
---------/\---------
---------/\---------
---------/\---------
---------/\---------
---------/\---------
---------/\---------
+Parei: https://www.postgresql.org/docs/current/tutorial-join.html
 
 
 
+Dicas:
+    Embora SELECT * seja útil para consultas improvisadas, é amplamente considerado um estilo ruim no código de produção, pois adicionar uma coluna à tabela alteraria os resultados. - https://www.postgresql.org/docs/current/tutorial-select.html
+    É amplamente considerado um bom estilo qualificar todos os nomes de coluna em uma consulta de junção, para que a consulta não falhe se um nome de coluna duplicado for posteriormente adicionado a uma das tabelas. - https://www.postgresql.org/docs/current/tutorial-join.html
 
 Parei aqui: https://www.postgresql.org/docs/current/ddl-constraints.html
 

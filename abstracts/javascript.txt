@@ -281,6 +281,35 @@ Conversões de objeto para valores primitivos
 
 "7" * "4" = 28
 
+Variáveis:
+    Regras:
+
+    Declarações:
+        Antes de usar variáveis, voceê deve declará-las
+        Syntax
+            Uma variável:
+                var nome_variavel1;
+            Uma ou mais variáveis (separar por vírgula):
+                var nome_variavel1, nome_variavel2...;
+    Inicialização:
+        Variáveis podem ser inicializadas em sua declaração, caso não seja, o padrão é undefined
+    Tipos
+        Não é preciso definir um tipo para variável, já que a linguagem ela é do tipo dinâmica
+    Escopos
+        Dentro do corpo da função, caso exista uma variável local com o mesmo nome de uma variável global, o que vale é a variável local quando você utiliza a função
+        JavaScript utiliza escopo de função: as variáveis são visíveis dentro da função em que são definidas e dentro de qualquer função que esteja aninhada dentro dessa função
+        Global
+            Varivável declarada fora de funções e seu valor só é considerado em funções, quando não se tem outra variável local com o mesmo nome
+            Sem var:
+                Cria uma propriedade normais e configuraveis no objeto global que pode ser excluída
+            Com var:
+                Cria uma propriedade no objeto global que não pode ser excluída
+        Local
+            Varivável declarada dentro de funções e é válida somente dentro de funções
+        O escopo de função em JavaScript significa que todas as variáveis declaradas dentro de uma função são visíveis por todo o corpo da função.  Essa característica é informalmente conhecida como içamento: 
+
+
+
 não há como alterar (ou “mudar”) um valor primitivo.
 React
     Gerador de piadas
@@ -289,170 +318,3 @@ React
     Pokedex
     previsão do tempo
         
-
-
-
-
-------------/Termos\------------
-Expressão: Uma expressão é uma frase em JavaScript que pode ser avaliada para produzir um valor. O uso de . e [] para se referir ao valor de uma propriedade de objeto ou a um elemento de array é uma expressão, por exem
-
-------------/Sintax\------------
-Comando devem terminar em ';'
-
-------------/Variaveis\------------
-var x; - Declarração da váriavel x
- 
-------------/Atribuição\------------
-Utiliza-se '=' entre o que vai ser atribuído e quem está recebendo a atribuição
-x = 0; Atribui o valor (número) para a váriavel x
-
-------------/Operadores Aritméticos\-------------
-3 + 2       - Mostra 5, se trata da adição
-3 - 2       - Mostra 1, se trata de subtração
-3 * 2       - Mostra 6, se trata de multiplicação
-3 / 2       - Mostra 1.5 se trata de divisão
-"3" + "2"   - Mostra 32 
-points[1].x – points[0].x // => 1: operandos mais complicados também funcionam?
-
-Abreviados:
-var count = 0;  // Define uma variável
-count++;        // Incrementa de 1 em 1 na variável
-count--;        // Decrementa de 1 em 1 na variável
-count += 2;     // Soma 2: o mesmo que count = count + 2;
-count *= 3;     // Multiplica por 3: o mesmo que count = count * 3;
-count           // => 6: nomes de variáveis também são expressões.
-
-------------/Operadores Relacionais\-------------
-var x = 2, y = 3; 
-x == y              - mostra falso: igualdade
-x != y              - mostra verdadeiro: desigualdade
-x < y               - mostra verdadeiro: menor que
-x <= y              - mostra verdadeiro: menor ou igual a
-x > y               - mostra falso: maior que
-x >= y              - mostra falso: maior ou igual a
-"two" == "three"    - mostra falso: as duas strings são diferentes
-"two" > "three"     - mostra verdadeiro: "tw" é alfabeticamente maior do que "th"
-false == (x > y)    - mostra verdadeiro: falso é igual a falso
-
-------------/Operadores Lógicos\-------------
-A condições que eles vão associar, precisam estar entre parenteses
-
-Operador E/And/&&:
-(x == 2) && (y == 3) - verdadeiro: as duas comparações são verdadeiras
-
-Operador Ou/Or/||:
-(x > 3) || (y < 3)   - falso: nenhuma das comparações é verdadeira. || é OU
-
-Operador Não/Not/!:
-!(x == y)            - verdadeiro: ! inverte um valor booleano
-
-------------/Tipos\------------
-numeroInteiro = 1;      - Apenas números do conjunto dos inteiros
-numeroReias = 3.14;     - Apenas números do conjunto dos reais, só possível armazenar os números deles, então não tem como armazenar o símbolo 'pi" 
-string = "Hello World"; - Sequencia de caracteres (texto) que formas uma string
-string = 'Hello World'; - Igual ao de cima
-boolean = true;         - O tipo boolean, verdadeiro ou falsox 
-boolean = false;        - O tipo boolean, verdadeiro ou falsox 
-x = null;               - É váriavel que representa nada/nulo/nenhum valor, não confunda com 0, 0 e nulo são diferentes
-x = undefined;          - ?
-/Object                 - Um conjunto pares de nome e valor\
-Var book = {
-    topic: "JavaScript",
-    fat: true
-}
-
-------------/Estrutura condicional\------------
-Obs: Chaves são opcionais quando há 1 instrução por cláusula.
-if (x >= 0) {   // 'if' (significa 'se') inicia a estrutura condicional, '()' onde fica as condições, '{' abre a primeira cláusula
-   return x;    // Se a comparação for verdadeira, retorna 'x'.
-} else {        // '}' fecha a primeira cláusula, 'else' (significa 'senão') se a condição for falsa, executa a segunda claúsula, '{' abre a segunda claúsula  
-return -x;      // Se a comparação for falsa, retorna '-x'. 
-}               // '}' fecha a segunda claúsula
-Funciona da seguinte forma: se (if) isso for verdadeiro (()), faça isso ({}), senão (else), faça isso ({})
-
-------------/Estruturas de repetição\------------
-While:
-while(n > 1) {      - 'while' (significa 'enquanto') inicia a estrutura repetitiva, '()' onde fica as condições, '{' abre a primeira cláusula
-    product *= n;   - Atalho para product = product * n;
-    n--;            - Atalho para n = n – 1
-}                   - '}' fecha a estrutura repetitiva
-Funciona da seguinte forma: enquanto (while) isso for verdadeiro (()), faça isso ({})
-
-for:
-for(i=2; i <= n; i++){  - 'for' (significa 'durante'), '(variaveis; condição; incremento)' regras da estrutura, '{' abre a cláusula
-   product *= i;        - Faz isso a cada vez. {} não é necessário para laços
-}                       - '}' fecha a estrutura repetitiva
-
-
-------------/Funções\------------
-function plus1(x) { - não é preciso passar o tipo da váriavel
-return x+1;         - Retorna um valor uma unidade maior do que o que foi passado
-}
-plus1(y)            - Chama a função 'plus1(y)', ela retorna o valor passado mais 1
-var square = function(x) { - As funções são valores e podem ser atribuídas a variáveis
- return x*x;               - Calcula o valor da função
-};                         - Um ponto e vírgula marca o fim da atribuição
-quare(plus(y))             - 16: chama duas funções em uma única expressão
-
-------------/Métodos\------------
-// Quando funções recebem as propriedades de um objeto, as chamamos de "métodos". Todos os objetos de JavaScript têm métodos:
-var a = [];     - Cria um array vazio
-a.push(1,2,3);  - O método push() adiciona elementos em um array
-a.reverse();    - Outro método: inverte a ordem dos elementos
-
-// Também podemos definir nossos próprios métodos. A palavra-chave "this" se refere ao objeto no qual o método é definido: neste caso, o array de pontos anterior.
-points.dist = function() { // Define um método para calcular a distância entre
- // pontos
- var p1 = this[0];              // Primeiro elemento do array que chamamos
- var p2 = this[1];              // Segundo elemento do objeto "this"
- var a = p2.x-p1.x;             // Diferença em coordenadas X
- var b = p2.y-p1.y;             // Diferença em coordenadas Y
- return Math.sqrt(a*a + b*b);   // O teorema de Pitágoras               
-                                // Math.sqrt() calcula a raiz quadrada
-};
-points.dist() // => 1,414: distância entre nossos 2 pontos
-
-------------/Arrays\------------
-Uma lista indexada numericamente onde cada posição pode possui um valor
-var primos = [2, 3, 5, 7];
-primos[0];                  - Acessa e mostra 2
-primos.lenght;              - Mostra o tamanho do array
-primos[primos.lenght-1];    - Mostra a posição 3 do array, o valor 7 
-primos[4] = 9;              - Atribui o valor 9 a posição 4 do array 'primos'
-primos[4] = 11;             - Atribui o valor  11 a posição 4 do array 'primos'
-
-É possível criar arrays que contém Objetos
-var points [        - Um array com dois elementos
-    {x:0, y:0},     - Primeiro elemento
-    {x:1, y:1}      - Segundo elemento
-];
-
-------------/Objetos\------------
-Acessando valores das propriedades:
-book.topic                  - Acessa o valor da propriedades topic, mostra "JavaScript"
-book.["fat"]                - Outro mode de acessar valores, mostra "true"
-book.author = "Flanagan";   - Cria uma nova propriedade caso não exista, se existir, atribui um valor a váriavel
-book.contents = {};         - Cria uma nova propriedade caso não exista, se existir, atribui um valor nulo
-
-O contrario também, é possível criar objetos que contém array
-var data ={                     - Um objeto com duas propriedades
-    trial1: [[1, 2], [3, 4]],   - Primeira propriedade
-    trial2: [[2, 3], [4, 5]],   - Segunda propriedade
-};
-
-
-
-Entidade                
-    Algo de interesse da comunidade de usuários de banco de dados. Os exemplos incluem clientes, peças, localizações geográficas, etc.
-Coluna                  
-    Uma parte individual dos dados armazenados em uma tabela.
-Linha                   
-    Um conjunto de colunas que juntas descrevem completamente uma entidade ou alguma ação em uma entidade. Também chamado de registro.
-Tabela                  
-    Um conjunto de linhas, mantido na memória (não persistente) ou no armazenamento permanente (persistente).
-Conjunto de resultados  
-    Outro nome para uma tabela não persistente, geralmente o resultado de uma consulta SQL.
-Chave primária          
-    Uma ou mais colunas que podem ser usadas como um identificador exclusivo para cada linha em uma tabela.
-Chave estrangeira       
-    Uma ou mais colunas que podem ser usadas juntas para identificar uma única linha em outra tabela
