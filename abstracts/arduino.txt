@@ -1,0 +1,106 @@
+[] - Opcional
+() - Obrigatório
+<>
+{}
+
+
+O arduino
+
+Entrada/Saída|I/O|On/Off
+    pinMode(1, 2);: https://docs.arduino.cc/learn/microcontrollers/digital-pins#properties-of-pins-configured-as-input
+        Descrição:
+            Configura o pino como entrada, saída ou pullup
+        Parâmetros:
+            1 - Número do pino
+            2 - Modo do pino
+                Valores:
+                    INPUT (Padrão) = Entrada
+                    OUTPUT = Saída
+                    INPUT_PULLUP
+        Exemplo: pinMode(5, INPUT);
+        Nota:
+            Os pinos de entrada analógica podem ser usados ​​como pinos digitais, referidos como A0, A1, etc. 
+            Exceções nos pinos dos Arduinos Nano, Pro Mini e A6 e A7 do Mini, que só podem ser usados ​​como entradas analógicas
+
+    digitalWrite(1, 2);:
+        Descrição:
+            Libera ou barra a passagem de voltagem do pino
+        Parâmetros:
+            1 - Número do pino
+            2 - Passagem/Barragem de voltagem
+                Valores:
+                    OUTPUT
+                        HIGH = 5V (ou 3,3v quando é 3,3v)
+                        LOW = 0V
+                    INPUT
+                        HIGH = Habilita o pullup interno no pino de entrada
+                        LOW = Desabilita o pullup interno no pino de entrada
+    
+    digitalRead();:
+
+Variáveis:
+    Constantes: https://www.arduino.cc/reference/en/language/variables/constants/constants/
+        Descrição:
+            São palavras reservadas da linguagem Arduino que definem valores
+        Níveis Lógicos|Booleanos:
+            false ou == 0 = Define algo como falso
+            true ou != 0 = Define algo verdadeiro
+        Níveis dos Pinos:
+            INPUT:
+                digitalRead:
+                    HIGH
+                        Se a tensão for maior que 3V no pino em placas de 5V
+                        Se a tensão for maior que 2V no pino em placas de 3,3V
+                    LOW
+                        Se a tensão for menor que 1,5V no pino em placas de 5V
+                        Se a tensão for menor que 1V (aproximadamente) no pino em placas de 3,3V
+                digitalWrite:
+                    HIGH
+                        Habilitará os resistores pull-up internos de 20K, que puxarão o pino de entrada para uma HIGHleitura, a menos que seja puxado LOWpor um circuito externo
+                digitalRead:
+            OUTPUT:
+                digitalWrite:
+                    HIGH
+                        Fornece:
+                            5V em placas de 5V
+                            3,3 V em placas de 3,3V
+                    LOW
+                        Fornece: 0V
+            INPUT_PULLUP:
+                Habilitará os resistores pull-up internos de 20K, que puxarão o pino de entrada para uma HIGHleitura, a menos que seja puxado LOWpor um circuito externo
+        Modos dos Pinos Digitais:
+            INPUT:
+                Eles ficam em um estado de alta impedância. Ou seja, fazem demandas extremamente pequenas no circuito que estão amostrando, equivalente a um resistor em série de 100 Megaohms na frente do pino
+
+                Leia o artigo para mais informações sobre como usar um switch com resistores externos
+            INPUT_PULLUP (Perigoso, pinos podem ser danificados ou destruídos):
+                O microcontrolador ATmega no Arduino possui resistores pull-up internos (resistores que se conectam à energia internamente) que você pode acessar. Se preferir usá-los em vez de resistores pull-up externos, você pode usar o INPUT_PULLUPargumento em pinMode(). Se preferir usá-los em vez de resistores pull-up externos, você pode usar o INPUT_PULLUPargumento em pinMode().
+                Tutorial:
+                    https://docs.arduino.cc/built-in-examples/digital/InputPullupSerial
+            OUTPUT:
+                Eles ficam em um estado de baixa impedância. Isso significa que eles podem fornecer uma quantidade substancial de corrente para outros circuitos.
+        LED_BUILTIN:
+            LED_BUILTIN = é o número do pino qual o LED on-board está conectado, normalmente no 13 
+        Ponto Flutuante:
+            Declaração e inicialização:
+                float nome_variável = 0.0000;
+        Inteiro:
+            Tipos:
+                Decimal:
+                    n = 123;
+                Binário:
+                    n = 0b...;
+                    ... = numero_em_binario;
+                Octal:
+                    n = 0...;
+                    ... = numero_em_octal;
+                Hexadecimal:
+                    0x...;
+                    ... = numero_em_hexadecimal;
+            Formatadores U & L:
+                Para especificar uma constante inteira com outro tipo de dados, siga-a com:
+                    um 'u' ou 'U' para forçar a constante em um formato de dados sem sinal. Exemplo: 33u
+                    um 'l' ou 'L' para forçar a constante em um formato de dados longo. Exemplo: 100000L
+                    um 'ul' ou 'UL' para forçar a constante em uma constante longa sem sinal. Exemplo: 32767ul
+            
+            
