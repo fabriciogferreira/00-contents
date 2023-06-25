@@ -102,5 +102,135 @@ Variáveis:
                     um 'u' ou 'U' para forçar a constante em um formato de dados sem sinal. Exemplo: 33u
                     um 'l' ou 'L' para forçar a constante em um formato de dados longo. Exemplo: 100000L
                     um 'ul' ou 'UL' para forçar a constante em uma constante longa sem sinal. Exemplo: 32767ul
+    Conversões:
+        unsigned int
+            Descrição: Converte um valor de qualquer tipo para unsigned int
+            Syntax: (unsigned int)valor
+            Retorna: unsigned int
+        unsigned long
+            Descrição: Converte um valor de qualquer tipo para unsigned long
+            Syntax: (unsigned long)valor
+            Retorna: unsigned long
+        byte
+            Descrição: Converte um valor de qualquer tipo para byte
+            Syntax:
+                byte(valor)
+                (byte)valor - Estilo C
+            Retorna: byte
+        char
+            Descrição: Converte um valor de qualquer tipo para char
+            Syntax:
+                char(valor)
+                (char)valor - Estilo C
+            Retorna: char
+        float
+            Descrição: Converte um valor de qualquer tipo para float
+            Syntax:
+                float(valor)
+                (float)valor - Estilo C
+            Retorna: float
+        int
+            Descrição: Converte um valor de qualquer tipo para int
+            Syntax:
+                int(valor)
+                (int)valor - Estilo C
+            Retorna: int
+        long
+            Descrição: Converte um valor de qualquer tipo para long
+            Syntax:
+                long(valor)
+                (long)valor - Estilo C
+            Retorna: long
+        word
+            Descrição: Converte um valor de qualquer tipo para word
+            Syntax:
+                word(valor)
+                word(h, l)
+                (word)valor - Estilo C
+            Parâmetros:
+                h = o byte de ordem superior (mais à esquerda) da palavra.
+                l = o byte de ordem inferior (mais à direita) da palavra.
+                Aqui fala sobre bit mais alto/baixo: https://www.arduino.cc/reference/en/language/variables/data-types/unsignedint/
+            Retorna: word
+    Utilidades
+        sizeof: https://www.arduino.cc/reference/en/language/variables/utilities/sizeof/
+            Descrição: Retorna o tamanho em bytes da variável (qualquer tipo) ou array
+            Syntax: sizeof(variavel)
+            Retorno: Número de bytes em size_t de uma variavel ou array
+        PROGMEM
+            https://www.arduino.cc/reference/en/language/variables/utilities/progmem/
+    Escopos de variáveis e Qualifiers
+        volatile: https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/
+        static:
+            A palavra-chave static é usada para criar variáveis ​​que são visíveis para apenas uma função. As variáveis ​​estáticas persistem além da chamada da função, preservando seus dados entre as chamadas da função, diferentes das variáveis normais. Elas só serão criadas e inicializadas na primeira vez que uma função for chamada.
+            Syntax: static int place;
+        scopo:
+            Global: 
+                Uma variável global é aquela que pode ser vista por todas as funções de um programa. As variáveis ​​locais são visíveis apenas para a função na qual são declaradas
+            Local: 
+                No ambiente Arduino, qualquer variável declarada fora de uma função (por exemplo setup(), loop(), etc. ), é uma variável global. Variáveis criadas dentro de funções, for só podem ser vistos por eles.
+        const:
+            É uma variável que seu valor não pode ser alterado, ou seja, é somente para leitura.
+            Use #define ou const (preferível const) para constantes numéricas ou de string
+            Use const para definir constantes numéricas, string ou matriz.
+    Tipos de dados:
+        bool
+            Descrição: bool só permite dois valores (1 byte), true ou false
+            Syntax: bool nome_variavel = valor;
+        boolean
+            Descrição: boolean é um alias de tipo não padrão bool definido pelo Arduino. É recomendável usar o tipo padrão bool, que é idêntico.
+        byte
+            Descrição: Um byte armazena um número sem sinal de 8 bits, de 0 a 255.
+            Sintax: byte nome_variavel = valor;
+
+
+        Terminar:
+            https://www.arduino.cc/reference/en/language/variables/data-types/array/
+            https://www.arduino.cc/reference/en/language/variables/data-types/char/
+            https://www.arduino.cc/reference/en/language/variables/data-types/double/
+            https://www.arduino.cc/reference/en/language/variables/data-types/float/
+            https://www.arduino.cc/reference/en/language/variables/data-types/string/
+            https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
+
+
+
+
+
+
+        int
+            Descrição: Arduino Uno (ou placas baseadas em ATmega), um int é 16 bits (2 bytes), ou seja, vai de -32.768 a 32.767 (-2^15 a 2^15 - 1). Arduino Due e SAMD, um int é 32 bits (4 bytes), ou seja, vai de  -2.147.483.648 a 2.147.483.647 (-2^31 a 2^31 - 1). Números negativos podem haver uma complicação inesperada ao lidar com o operador bitshift à direita (>>).
+            Sintax: int nome_variavel = valor;
+        long
+            Descrição: São variáveis que armazenam até 32 bits/4 bytes, ou seja, vai de -2.147.483.648 a 2.147.483.647 (-2^31 a 2^31 - 1)
+            Sintax: long nome_variavel = valor;
+        short
+            Descrição: São variáveis que armazenam até 16 bits/2 bytes, ou seja, vai de -32.768 a 32.767 (-2^15 a 2^15 - 1) (placas baseadas em ATMega e ARM)
+            Sintax: short nome_variavel = valor;
+        size_t
+            Descrição: Representa o tamanho de qualquer objeto em bytes
+            Sintax: size_t nome_variavel = valor;
             
+        unsigned
+            Por que usar variáveis ​​sem sinal?
+                O comportamento de rollover é desejado, por exemplo, contadores
+                A variável com sinal é um pouco pequena demais, mas você deseja evitar a perda de memória e velocidade de long/float.
+            unsigned char
+                Descrição: Um tipo de dado não assinado que ocupa 1 byte de memória. Igual ao byte tipo de dados. É preferível usa o byte.
+                Sintax: unsigned char nome_variavel = valor;
+            unsigned int
+                Descrição: São variáveis sem sinal que armazenam até 16 bits/2 bytes, ou seja, vai de 0 a 65.535 (2^16 - 1) (No uno e placas baseadas em ATMEGA)
+                No Due vai até 32 bits/4 bytes, ou seja, vai de 0 a 4.294.967.295 (2^32 - 1)
+                Sintax: unsigned int nome_variavel = valor;
+            unsigned long
+                Descrição: São variáveis sem sinal que armazenam até 32 bits/4 bytes, ou seja, vai de 0 a 4.294.967.295 (2^32 - 1)
+                Sintax: unsigned long nome_variavel = valor;
+        void
+            Descrição: é usada para definir funções que não vão ter nenhum retorno
+            Sintax: void setup(){...}
+        word
+            Descrição: armazena um valor do tipo word
+            Sintax: word nome_variavel = valor;
+
+
+
             
