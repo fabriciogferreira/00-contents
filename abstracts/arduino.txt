@@ -230,7 +230,3 @@ Variáveis:
         word
             Descrição: armazena um valor do tipo word
             Sintax: word nome_variavel = valor;
-
-
-
-            

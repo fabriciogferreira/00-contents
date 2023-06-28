@@ -1,0 +1,35 @@
+Matéria
+    Matéria é tudo que tem massa e ocupa lugar no espaço. Não existe vida nem manutenção da vida sem matéria.
+    Um porção delimitada de matéria recebe o nome de corpo. Quando um corpo é usadp como utensílio ou ferramenta pelo homem temos um objeto
+    Matéria: árvore
+    Corpo: troncos e galhos
+    Objeto: mesa
+
+Estados da matéria mais conhecidos
+    Sólido
+    Líquido
+    Gasoso
+
+Molécula
+    É a porção mais pequena de uma matéria
+
+Particulas
+    Substâncias que formam um matéria
+    As Substâncias da água são o hidrogênio (no caso 2) e um oxigênio
+
+Um conjunto de Particulas são os atomos
+
+Substâncias simples
+    são elementos quimicos separados
+
+Substâncias compostas
+    são elementos quimicos juntos
+
+Atomos 
+    Atomos são compostos por núcleo que possui nêutrons e prótons, em sua volta ficam os elétrons
+
+Leis básicas da eletricidade:
+    Cargas eletrícas iguais se repelem
+        <- + + ->
+        <- - - ->
+        + -> <- -
