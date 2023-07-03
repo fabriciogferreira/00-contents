@@ -192,11 +192,6 @@ Variáveis:
             https://www.arduino.cc/reference/en/language/variables/data-types/string/
             https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
 
-
-
-
-
-
         int
             Descrição: Arduino Uno (ou placas baseadas em ATmega), um int é 16 bits (2 bytes), ou seja, vai de -32.768 a 32.767 (-2^15 a 2^15 - 1). Arduino Due e SAMD, um int é 32 bits (4 bytes), ou seja, vai de  -2.147.483.648 a 2.147.483.647 (-2^31 a 2^31 - 1). Números negativos podem haver uma complicação inesperada ao lidar com o operador bitshift à direita (>>).
             Sintax: int nome_variavel = valor;
@@ -230,3 +225,31 @@ Variáveis:
         word
             Descrição: armazena um valor do tipo word
             Sintax: word nome_variavel = valor;
+
+Estruturas
+    Controle
+        break
+            É usado para sair da estruturas for, while, do...while e switch case.
+        continue
+            É usado para pular os comandos após ele na iteração autal de loop (for, while ou do..while).
+        goto
+            É instrução que manda o fluxo de execução para outro lugar, não recomendada o uso dessa instrução, pois pode acaretar em alguns problemas.
+        return
+            É uma instrução para as funções, ela retorna uma valor e encerra o restante da função.
+    Condicional
+        if
+            É uma instrução que executa certos comandos de acordo com uma condição caso ela seja verdadeira.
+            Qualquer número diferente de 0 é verdadeiro.
+            elseif
+                É uma instrução complementar do if, que funciona exatamente como o 'if', mas que está ligada ao if ou ifelse anterior a ele
+            ele
+                É uma outra instrução complementar do if, caso todas sa condições de falso, ele executa o else
+        switch case
+            é uma instrução do que compara e executa comandos, caso uma condição seja verrdadeira.
+    Repetição
+        while
+            É uma estrutura de repetição que testa sua no ínicio da sua execução e executa depois, ele executa enquanto for verdadeiro 
+        do...while
+            É uma estrutura de repetição que testa sua condição no final da estrutura, ou seja, executa a primeira vez e testa nas restantes. Em teoria, é usado quando você não sabe o número de repetições.
+        for
+            É uma estrutura de repetição que testa sua condição e depois executa os comandos, a diferença do para o do...while e while, é que normalmente voçê sabe o número de repetições. 

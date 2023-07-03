@@ -121,6 +121,25 @@ if 'condição':
 eleif:
     'comandos'
 
+----------/Strings\----------
+    Uma string é uma váriavel com uma sequência de caracteres
+    Strings são imutáveis, portanto, para aterar uma string, é preciso criar umar nova
+    Atribuição/Syntax
+        fruit = 'Texto'
+    Acesso/Syntax
+        letra = feuit[0...n]
+        Fatiamento
+            fruit[:n] = do inicio até n 
+            fruit[n:] = de n até o final 
+    Métodos
+        len() = devolve o tamanho da string
+        upper() = devolve a string com todas as letras maiúsculas
+        find('string', inicio, fim) = retorna o indice do caractere que você mandou procurar, caso haja. Ele também consegue encontrar substring. 
+            inicio = indica de onde deve começar a procura
+            fim = indica de onde deve terminar a procura
+        in = retorna valor boolean caso a string a esteja na string b
+        capitalize() = retorna a string com a primeira letra em maiúsculas
+
 
 ----------/Recursividade\----------
 É ato de chamar uma função em si mesmo

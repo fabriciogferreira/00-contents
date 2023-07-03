@@ -33,3 +33,8 @@ Leis básicas da eletricidade:
         <- + + ->
         <- - - ->
         + -> <- -
+
+Condução em materiais
+    Não Condutores
+    Semi Condutores
+    Condutores
