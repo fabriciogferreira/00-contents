@@ -141,3 +141,24 @@ Aúdio
 Vídeo
   Video src, poster, controls, loop>source src, type><
   Video por incorporação: Site do vídeo -> Vídeo -> Compartilhar -> Copiar/Editar o Incorporar(HTML) -> Colar no Site 
+
+Fundo
+  Com cor
+    background-color: nome da cor, rgb, rgba ou hexadecimal;
+  Com imagem
+    background-image: url('caminhodaimagem');
+  background-position: x y;
+    x ou y = center, top, down, left ou right
+  background-repeat: no-repeat, y-repeat, x-repeat ou repeat;
+  background-size: contain (acompanha o tamanho da tela), cover (fica no tamanho original e vai cortando caso a tela seja menor que a imagem) ou auto;
+  background-attachment: scroll ou fixed;
+    scroll =  a imagem acompanha
+    fixed = a imagem fica parada
+  Shorthand:
+    background: color > image > position > repeat > [size] > attachment;
+
+Centralizar verticalmente
+  Position
+    Tag Pai:
+      Position: relative
+    Tag Filho:

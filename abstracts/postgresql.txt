@@ -132,16 +132,96 @@ psql: https://www.postgresql.org/docs/current/app-psql.html
 --------/Abreviação de nomes de tabelas (Aliases)\---------
     Você pode renomear tabelas para que elas sejam referências de forma mais rápda em uma consulta SQL
     SELECT * FROM weather w JOIN cities c ON w.city = c.name;
+
+--------/Coonstraints/Restrições\---------
+As retrições server para complementar as retrições de tipo de dados.
+
+Check Constraints (Restrição de coluna):
+    É utilizado par aceitar valores que resultam True ou Nulo (Verdadeiro) de uma expressão lógica. Exemplo:
+    Syntax: 
+        nome_coluna TIPO_DADO CHECK (expressão)
+    Ou você pode nomear essa restrição
+    Syntax: 
+        nome_coluna TIPO_DADO CONSTRAINT [nome_restricao] CHECK (expressão)
+    Caso você não defina um nome, o BD irá escolher
+    CREATE TABLE produtos ( 
+        price numeric CHECK (price > 0) 
+    );
+    Restrições que usam apenas 1 campo são restrições de coluna
+
+Check Constraints (Restrição de tabela):
+    CREATE TABLE produtos ( 
+        preço numérico, 
+        CHECK (preço > 0), 
+        desconto_preço numérico, 
+        CHECK (desconto_preço > 0), 
+        CHECK (preço > desconto_preço) 
+    );
+    Restrições que usam mais de 1 campo são restrições de tabela
+    Restrições de coluna podem ser escritas como restrições de tabela, mas não o contrario, pois restrições devem ser anexadas a apenas uma coluna. [1]
+
+Not-Null Constraints:
+    Especifica que as linhas de coluna não podem ser nulas, ela é sempre escrita como restrição de coluna
+    Syntax:
+         nome_coluna TIPO_DADO NOT NULL
+
+Null Constraints (Padrão):
+    Ela não especifica que uma deve ser nula e sim que PODE ser nula. Ela só foi adicionada para ser compátivel com outros SGBDs
+
+Unique:
+    Especifica que o valor deve ser exclusivo entre todas os os valores das linhas da coluna
+    2 linhas com valores NULOS não são considerados iguais, ou seja, o UNIQUE deixa passar valores NULOS mesmo que tenha uma linha com esse valor. Isso pode resolvido com NULLS NOT DISTINCT, o contrário (padrão) NULLS DISTINCT
+    Syntax:
+        Em restrição de coluna:
+            nome_coluna [CONSTRAINT nome_restricao] TIPO_DADO UNIQUE
+        Em restrição de tabela:
+            UNIQUE (nome_coluna1[, nome_coluna2, ...])
+
+Primary Key:
+    Indica que uma ou mais é um identificador exclusivo para asa linhas na tabela. É equivalente a UNIQUE com NOT NULL, mas não é idêntico, pois a restrição PRIMARY KEY faz mais coisas.
+    Syntax:
+        Em restrição de coluna (Uma coluna):
+            product_no integer PRIMARY KEY,
+        Em restrição de tabela (Uma ou mais colunas):
+            PRIMARY KEY (nome_coluna1[, nome_coluna2, ...])
+
+Foreign Key:
+    Essa restrição diz que os valores das linhas da coluna devem fazer referência a valores de linhas da coluna de outra tabela
+    Syntax:
+        Em restrição de coluna (Uma coluna):
+            fk_product_no integer REFERENCES products (product_no)
+            ou
+            fk_product_no integer REFERENCES products 
+            porque na ausência de uma lista de colunas, a chave primária da tabela referenciada é usada como a(s) coluna(s) referenciada(s).
+        Em restrição de tabela (Uma ou mais colunas):
+            FOREIGN KEY (b, c) REFERENCES other_table (c1, c2)
+    Assim, só é possível criar um resgirto em orders se houver no mínimo um registro em products e exista um valor corespondente de chave primária em products. Então products é a tabela referenciada e orders é a tabela referenciando.
+
+Constraints On Delete
+    Restrict
+    Cascade
+    No Action
+    Set Null
+    Set Default
+Constraints On Update
+    Restrict
+    Cascade
+    No Action
+
+Exclude Constraints
+
 --------/\---------
 --------/\---------
---------/\---------
-Parei: https://www.postgresql.org/docs/current/tutorial-join.html
+Parei: https://www.postgresql.org/docs/current/ddl-system-columns.html
 
 
 
 Dicas:
     Embora SELECT * seja útil para consultas improvisadas, é amplamente considerado um estilo ruim no código de produção, pois adicionar uma coluna à tabela alteraria os resultados. - https://www.postgresql.org/docs/current/tutorial-select.html
     É amplamente considerado um bom estilo qualificar todos os nomes de coluna em uma consulta de junção, para que a consulta não falhe se um nome de coluna duplicado for posteriormente adicionado a uma das tabelas. - https://www.postgresql.org/docs/current/tutorial-join.html
+    Na maioria dos designs de banco de dados, a maioria das colunas deve ser marcada como não nula.
+    A teoria do banco de dados relacional determina que toda tabela deve ter uma chave primária. Esta regra não é imposta pelo PostgreSQL , mas geralmente é melhor segui-la. - https://www.postgresql.org/docs/current/ddl-constraints.html
+    [1] - O PostgreSQL não impõe essa regra, mas você deve segui-la se quiser que suas definições de tabela funcionem com outros sistemas de banco de dados.
 
 Parei aqui: https://www.postgresql.org/docs/current/ddl-constraints.html
 
