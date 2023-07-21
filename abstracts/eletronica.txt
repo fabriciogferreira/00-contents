@@ -38,3 +38,22 @@ Condução em materiais
     Não Condutores
     Semi Condutores
     Condutores
+
+Componentes
+    Led
+        Cálculo: https://www.desterroeletricidade.com.br/blog/eletrica/aprenda-como-calcular-resistor-para-led/
+
+Ohms
+    Grandeza
+        Múltiplos e submúltiplos
+            https://pt.wikipedia.org/wiki/Ohm
+    
+    Associação
+        https://www.todamateria.com.br/associacao-de-resistores/
+
+    Calculadora
+        https://br.mouser.com/technical-resources/conversion-calculators/resistor-color-code-calculator
+        https://convertpedia.com.br/pt/eletrica/calculadora-de-resistores.php
+    
+    Outros:
+        https://www.casadoresistor.com.br/componentes/resistores/resistor-com-derivacao/#:~:text=O%20sistema%20de%20tr%C3%AAs%20e%20quatro%20d%C3%ADgitos&text=A%20letra%20R%20%C3%A9%20usada,resist%C3%AAncia%20inferiores%20a%2010%20ohms

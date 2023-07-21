@@ -155,3 +155,7 @@ A função 'input()' permite que o usuário digite algo, você pode passar uma m
 
 ----------/Retorno\-----------
 Algo que retorna da função que você chama
+
+----------/Arquivo de texto\-----------
+Comandos
+    fin = open('src') - Acessa o arquivo e guarda em fin

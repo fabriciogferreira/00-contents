@@ -279,8 +279,6 @@ Conversões Explícitas (46)
     Object(3)       - => novo Number(3)
 Conversões de objeto para valores primitivos
 
-"7" * "4" = 28
-
 Variáveis:
     Regras:
 
@@ -328,6 +326,7 @@ Expressões e Operadores
         new Object
     Visão geral dos operadores
         ++              - Pré- ou pós-incremento                        D 1 lval→num
+
         --              - Pré- ou pós-decremento                        D 1 lval→num
         -               - Nega o número                                 D 1 num→num
         +               - Converte para número                          D 1 num→num
@@ -367,7 +366,81 @@ Expressões e Operadores
         >>=, >>>=
         ,               - Descarta 1º operando, retorna o segundo       E 2 qualquer,qualquer→qualquer
     
-Expressões Aritméticas
+Expressões Aritméticas(65)
+    Operadores bit a bit(68)
+
+Expressões relacionais
+    igualdade
+        Lê-se: "é igual a"
+        Operador: == 
+        Operandos: Qualquer tipo
+        Casos:
+            Se um valor é null e o outro é undefined, eles são iguais
+            Se um valor é um número e o outro é uma string, converte a string em um número e tenta 
+a comparação novamente, usando o valor convertido
+    igualdade restrita/Operador de indentidade 
+        Lê-se: "é estritamente igual",  "é idêntico a"
+        Operador: ===
+        Operandos: Qualquer tipo
+        Casos:
+            Se os dois valores têm tipos diferentes, eles não são iguais.
+            Se um ou os dois valores são NaN, eles não são iguais. O valor NaN nunca é igual a qualquer outro valor, incluindo ele mesmo! Para verificar se um valor x é NaN, use x !== x. NaN é o único valor de x para o qual essa expressão será verdadeira.
+            Se um valor é 0 e o outro é -0, eles também são iguais.
+            Se os dois valores se referem ao mesmo objeto (Não importa o conteúdo), array ou função, eles são iguais
+    desigualdade
+        Lê-se: "é diferente de",  “não é igual a”
+        Operador: != 
+        Operandos: Qualquer tipo
+    desigualdade restrita
+        Lê-se: "é estritamente diferente"
+        Operador: !==
+        Operandos: Qualquer tipo
+
+Operadores de comparação
+    Operandos: Os operandos desses operadores de comparação podem ser de qualquer tipo. Contudo, a comparação só pode ser feita com números e strings; portanto, os operandos que não são números ou strings são convertidos. (72)
+    Menor
+        Lê-se: "menor que"
+        Operador: <
+    Maior
+        Lê-se: "maior que"
+        Operador: >
+    Menor ou igual
+        Lê-se: "menor ou igual a"
+        Operador: <=
+    Maior ou igual
+        Lê-se: "maior ou igual a"
+        Operador: >=
+
+Operador in
+    in
+        Lê-se: "em"/"esta em"
+        Operador: in
+        Operando lado esquerdo: que possa ser convertido em string
+        Operando lado direito: Objeto
+        Caso: é avaliado como true se o valor do lado esquerdo é o nome de uma propriedade do objeto do lado direito.
+
+Operador instanceof
+    instanceof
+        Lê-se: 
+        Operador lado esquerda: objeto
+        Operador lado direito: classe de objetos
+        Caso: é avaliado como true se o objeto do lado esquerdo é uma instância da classe do lado direito e é avaliado como false caso contrário. 
+
+Expressões lógicas
+    E/and/&&
+
+    Ou/or/||
+    Não/not/!
+    Falsos: false, null, undefined, 0, -0, NaN e ""
+    Verdadeiro: qualquer outro é verdadeiro
+
+Expressões de atribuição
+    atribuição
+        Lê-se: "atribui"/"recebe"/"inicializa"
+
+
+
+
 
 
 não há como alterar (ou “mudar”) um valor primitivo.

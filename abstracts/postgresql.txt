@@ -72,8 +72,8 @@ psql: https://www.postgresql.org/docs/current/app-psql.html
     smallint        - (Tipo Padrão do SQL) O mesmo do tipo inteiro,só que aceita um intervalo menor de tempo
     real            - (Tipo Padrão do SQL) Ponto flutuante, aceita números com parte fracionária
     double precision- (Tipo Padrão do SQL)
-    char()          - (Tipo Padrão do SQL) Texto com quantidade exata de characteres, não pode colocar menos nem mais
-    varchar()       - (Tipo Padrão do SQL) 
+    char()          - (Tipo Padrão do SQL) Texto com quantidade exata de caracteres, é preenchido com espaços em branco a direita até o máximo específicado
+    varchar()       - (Tipo Padrão do SQL) Texto com quantidade váriavel de caracteres, é utilizado a quantidade necessário até o máximo específicado
     date            - (Tipo Padrão do SQL)
     time            - (Tipo Padrão do SQL)
     timestamp       - (Tipo Padrão do SQL)
