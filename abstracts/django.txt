@@ -3,6 +3,8 @@ Sumário detalhado: https://docs.djangoproject.com/en/4.2/contents/
 Versões compátiveis: https://docs.djangoproject.com/pt-br/4.2/faq/install/#faq-python-version-support
 
 Banco de dados: https://docs.djangoproject.com/pt-br/4.2/intro/install/
+https://docs.djangoproject.com/en/4.2/topics/install/#database-installation
+https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-DATABASES
 
 Instalar: https://docs.djangoproject.com/en/4.2/topics/install/
 
@@ -12,19 +14,32 @@ Obs:
 
 Projetos x Aplicativos
     Qual é a diferença entre um projeto e um aplicativo? Um aplicativo é um aplicativo da Web que faz alguma coisa – por exemplo, um sistema de blog, um banco de dados de registros públicos ou um pequeno aplicativo de pesquisa. Um projeto é uma coleção de configurações e aplicativos para um determinado site. Um projeto pode conter vários aplicativos. Um aplicativo pode estar em vários projetos.
+    Usar " ou ', na documentação está usando ", já no projeto base é ', então utilize '
 
 Possui:
     ORM - Object-Relational Mapper
 
 Passo a passo:
-    python -m venv nome-ambiente-virtual - Recomendo instalar um Ambiente Virtual
-    nome-ambiente-virtual-criado\Scripts\activate - Ative o ambiente virtual para instalar o que for necessário
-    deactivate - Caso precise desligar a venv (provavelmente quando terminar de mexer)
-    python -m pip install Django - Instalar django
-    django-admin startproject name_project - Criar projeto
-    python manage.py runserver - Roda o servidor na porta [0.0.0.0:][8080]
-    Ctrl + c - Parar o servidor
-    python manage.py startapp name-app - Criar aplicativo
+    Recomendo instalar um Ambiente Virtual
+        python -m venv nome-ambiente-virtual
+    Ative o ambiente virtual para instalar o que for necessário
+        nome-ambiente-virtual-criado\Scripts\activate
+    Caso precise desligar a venv (provavelmente quando terminar de mexer)
+        deactivate
+    Instalar django
+        python -m pip install Django
+    Verificiar se o django foi instalado
+        python -m django --version
+    Criar projeto
+        django-admin startproject name_project
+    Roda o servidor na porta [0.0.0.0:][8080]
+        python manage.py runserver
+    Parar o servidor
+        Ctrl + c
+    Criar aplicativo
+        python manage.py startapp name-app
+    Para incluir a aplicação em nosso projeto, você deve informar o caminho de referência à classe de configuração da aplicação na configuração INSTALLED_APPS. Normalmente fica:
+        name_app.apps.Name_appConfig
 
 
 Estrutura criada
@@ -39,15 +54,33 @@ Estrutura criada
 
 Padrão arquitetura
     View
+    Model
+    urls
         Para chamar views, precisamos mapear a URL e para mapear as URLs, precisamos de uma URLconf
         As urls precisam ser criadas nos aplicativos, para isso, crie 'urls.py' 
-    Model
-
+        Agora precisamos apontar a raiz da URLconf (Projeto/startproject) para os seus módulos (Aplicativo/startapp), para conseguir fazer isso, importe de django.urls.include e insira um include()
+        Ele junta parâmetro 'root' da 'urls.py' do projeto e o parâmetro 'root' da 'urls.py' do aplicativo
+        Aparentemente o parâmetro 'root' da 'urls.py' do aplicativo que em vazio, é considerado a página 'index'
+        Caso tenha dois root vazios, o que aparecer primeiro de cima pra baixo é utilizado
+        A função path permite que você passa um terceiro parâmetro chamado kwargs, ele deve ser um dicionário de palavras chaves
+    admin
+        Deve-se sempre usar include() quando você incluir outros padrões de URL. admin.site.urls é a única exceção a isso.
+    time zone
+        https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-TIME_ZONE
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 Comandos
     python manage.py
-    makemigrations - Mapeia todos os seus modelos disponíveis e cria migrações para cada tabela que ainda não exista
-    migrate - Executa as migrações e cria as tabelas em seu banco de dados
+
+Models
+    Mapeia todos os seus modelos disponíveis e cria migrações para cada tabela que ainda não exista, normalmente utilizado para quando você atualiza seus modelos
+        python manage.py makemigrations name_app
+    Executa as migrações e cria as tabelas em seu banco de dados, o comando migrate executará apenas migrações para aplicativos em INSTALLED_APPS.
+        python manage.py migrate
+    Para ver qual SQL está migração vai rodar. 
+        python manage.py sqlmigrate name_app number_migration
+    Ele checa por problemas no seu projeto sem criar migrations ou tocar seu banco de dados.
+        python manage.py
 
 Templates
     Como funciona: utiliza o conceito de herança de templates
@@ -56,4 +89,4 @@ Templates
     {{}} - Ficam as váriaveis nos templates
 
 
-Parei em: https://docs.djangoproject.com/pt-br/4.2/intro/tutorial01/
+Parei em: https://docs.djangoproject.com/pt-br/4.2/intro/tutorial02/
