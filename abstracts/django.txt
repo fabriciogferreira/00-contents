@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-DATABASES
 
 Instalar: https://docs.djangoproject.com/en/4.2/topics/install/
 
+Lingua: https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-LANGUAGE_CODE
+
+
 Obs:
     Não utilize esse servidor em produçao
     Apesar do django reiniciar automáticamente o servidor quando o código é atualizado, ele não faz isso para novos arquivos
@@ -81,6 +84,10 @@ Models
         python manage.py sqlmigrate name_app number_migration
     Ele checa por problemas no seu projeto sem criar migrations ou tocar seu banco de dados.
         python manage.py
+
+Admin
+    Para utilizar a inteface de administração do django, é preciso criar um super usuário
+        python manage.py createsuperuser
 
 Templates
     Como funciona: utiliza o conceito de herança de templates
