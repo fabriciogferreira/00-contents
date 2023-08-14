@@ -1,42 +1,14 @@
 Sumário detalhado: https://docs.djangoproject.com/en/4.2/contents/
 
-Banco de dados:
-https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-DATABASES
-
 Instalar: https://docs.djangoproject.com/en/4.2/topics/install/
 
 Lingua: https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-LANGUAGE_CODE
-
-Possui:
-    ORM - Object-Relational Mapper
-
-Ambiente virtual
-    Recomendo instalar um Ambiente Virtual
-        python -m venv nome-ambiente-virtual
-    Ative o ambiente virtual para instalar o que for necessário
-        nome-ambiente-virtual-criado\Scripts\activate
 
 Requisitos
     Instale o banco de dados que você precisa
         https://docs.djangoproject.com/en/4.2/topics/install/#database-installation
 
-
-    Para incluir a aplicação em nosso projeto, você deve informar o caminho de referência à classe de configuração da aplicação na configuração INSTALLED_APPS. Normalmente fica:
-        name_app.apps.Name_appConfig
-
-
-Padrão arquitetura
-    time zone
-        https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-TIME_ZONE
-        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-Comandos
-    python manage.py
-
 Models
-    Mapeia todos os seus modelos disponíveis e cria migrações para cada tabela que ainda não exista, normalmente utilizado para quando você atualiza seus modelos
-        python manage.py makemigrations name_app
-    Executa as migrações e cria as tabelas em seu banco de dados, o comando migrate executará apenas migrações para aplicativos em INSTALLED_APPS.
         python manage.py migrate
     Para ver qual SQL está migração vai rodar. 
         python manage.py sqlmigrate name_app number_migration
