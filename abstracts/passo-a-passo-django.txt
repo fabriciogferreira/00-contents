@@ -1,0 +1,232 @@
+root
+1234
+
+Fabricio
+$1a2b3c4d$
+
+
+Passo a passo
+    python -m venv venv-nome
+        venv-nome <- É recomendado '.venv' pelo python (https://docs.python.org/3/tutorial/venv.html?highlight=prevents+clashing#creating-virtual-environments)
+    venv-nome\Scripts\activate
+    python -m pip install --upgrade pip
+    python -m pip install django
+    python -m django --version
+    django-admin startproject nome-projeto
+    md nome-projeto/apps
+    cd nome-projeto
+    cd apps
+    python ../manage.py startapp nome-app1
+    python ../manage.py startapp nome-appN
+    Configure seu banco de dados
+    Configure language code
+    Configure o time zone
+        Padrão UTC
+    *Incluir aplicativos
+    *Criar seus modelos
+
+Repetir
+    [speeia]
+    python manage.py migrate
+    Ele checa por problemas no seu projeto sem criar migrations ou tocar seu banco de dados.
+    python manage.py check
+    python manage.py makemigrations appname
+    [pmcd]
+
+Conceitos
+    Projetos 
+        Um projeto é uma coleção de configurações e aplicativos para um determinado site. Um projeto pode conter vários aplicativos. Um aplicativo pode estar em vários projetos.
+        Um projeto é uma coleção de configurações e aplicativos para um determinado site. Um projeto pode conter vários aplicativos. Um aplicativo pode estar em vários projetos.
+    Aplicativos
+        Um aplicativo é um aplicativo da Web que faz alguma coisa – por exemplo, um sistema de blog, um banco de dados de registros públicos ou um pequeno aplicativo de pesquisa. 
+
+Estrutura do projeto
+    name-project
+        O diretório raiz externo mysite/é um contêiner para seu projeto. Seu nome não importa para Django; você pode renomeá-lo para o que quiser.
+    manage.py
+        Um utilitário de linha de comando que permite interagir com este projeto Django de várias maneiras. Você pode ler todos os detalhes sobre manage.py em https://docs.djangoproject.com/en/4.2/ref/django-admin/.
+    ../name-project
+        O mysite/diretório interno é o pacote Python real para o seu projeto. Seu nome é o nome do pacote Python que você precisará usar para importar qualquer coisa dentro dele (por exemplo, mysite.urls).
+    mysite/__init__.py
+        Um arquivo vazio que informa ao Python que esse diretório deve ser considerado um pacote Python. Se você é iniciante em Python, leia mais sobre pacotes nos documentos oficiais do Python https://docs.python.org/3/tutorial/modules.html#tut-packages.
+    mysite/settings.py
+        Definições/configuração para este projeto Django. As configurações do Django lhe dirão tudo sobre como as configurações funcionam https://docs.djangoproject.com/en/4.2/topics/settings/.
+    mysite/urls.py
+        As declarações de URL para este projeto Django; um “índice” do seu site desenvolvido com Django. Você pode ler mais sobre URLs em URL dispatcher https://docs.djangoproject.com/en/4.2/topics/http/urls/.
+    mysite/asgi.py
+        Um ponto de entrada para servidores da Web compatíveis com ASGI para servir ao seu projeto. Consulte Como implantar com ASGI para obter mais detalhes https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/.
+    mysite/wsgi.py
+        um ponto de entrada para servidores da Web compatíveis com WSGI para servir ao seu projeto. Consulte Como implantar com WSGI para obter mais detalhes https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/.
+
+
+Atalhos
+    CTRL + c
+        Parar o servidor
+Comandos
+    python manage.py runserver [0.0.0.0:][8080]
+        Executar projeto
+    deactivate
+        Caso precise desligar a venv (provavelmente quando terminar de mexer)
+    python manage.py makemigrations nameapp
+        Mapeia todos os seus modelos disponíveis e cria migrações para cada tabela que ainda não exista, normalmente utilizado para quando você atualiza seus modelos
+    python manage.py check
+        Ele checa por problemas no seu projeto sem criar migrations ou tocar seu banco de dados.
+    python manage.py migrate
+        Executa as atualizações do ORM, o comando migrate executará apenas migrações para aplicativos em INSTALLED_APPS
+    python manage.py sqlmigrate appname number_migrate
+        Mostra o código SQL que vai ser executado no banco de dados do aplicativo
+    python manage.py shell
+        Executa o shell para usaro shell do python
+
+Como funciona o django
+    views
+        O que faz: A view define quais dados vão ser mostrados e fluxo do software através de funções que são chamadas pela 'urls'
+    urls
+        O que faz: Define o nome e a url do caminho paras as views do aplicativos que podem ser chamados
+        Para chamar uma view, precisamos mapear a url, para isso, precisamos criar uma urlconf na pasta raiz de cada aplicativo chamado de 'urls.py'
+        Agora você precisa um array de paths que informa o nome da url, a função da view que vai ser chamada naquele aplicativo e o nome para chamar ela no template, respectivamente, por exemplo
+            urlpatterns = [path(route, view, kwargs=None, name="index")]
+            urlpatterns = [path("", views.index, name="index")]
+        Para que o projeto consiga ver as funções da views dos seus aplicativos/módulos, você precisa apontar para os arquivos urls dos seus aplicativos
+            importe de django.urls.include
+            urlpatterns = [path('appname1/', include('appname1.urls'))]
+        Ele junta parâmetro 'root' da 'urls.py' do projeto e o parâmetro 'root' da 'urls.py' do aplicativo
+            routeurlsporject+routeurlsapp
+        Aparentemente o parâmetro 'root' da 'urls.py' do aplicativo que em vazio, é considerado a página 'index'
+        Caso tenha dois root vazios, o que aparecer primeiro de cima pra baixo é utilizado
+        A função path permite que você passa um terceiro parâmetro chamado kwargs, ele deve ser um dicionário de palavras chaves
+        Deve-se sempre usar include() quando você incluir outros padrões de URL. admin.site.urls é a única exceção a isso.
+    models
+        O que faz: Um modelo é a fonte única e definitiva de informações sobre seus dados. Ele contém os campos e comportamentos essenciais dos dados que você está armazenando. 
+        Comando
+        Meta:
+            Opções:
+                db_name:  Define o nome da tabela, '' equivale a padrão, ou seja, db_name = appName_NomeClass
+
+    View
+        No Django, as páginas da web e outros conteúdos são entregues por views. Cada visão é representada por uma função Python (ou método, no caso de visões baseadas em classes). O Django escolherá uma view examinando a URL solicitada (para ser preciso, a parte da URL após o nome do domínio).
+
+        Sempre retorna um HttpResponseRedirect após lidar com sucesso com dados POST. Isso evita que os dados sejam postados duas vezes se um usuário pressiona o botão Voltar.  Esta dica não é específica para Django; é uma boa prática de desenvolvimento web em geral.
+    Templates
+        Oque é: os templates são as telas do sistema 
+        Como funciona: utiliza o conceito de herança de templates
+        Faz o que: primeiro carregue o template chamado ‘base’, o qual define uma série de blocos, e preencha os blocos com os seguintes blocos
+        
+        Usar method="post" (ao contrário de method="get") é muito importante, porque o ato de enviar este formulário alterará os dados do lado do servidor. Sempre que você criar um formulário que altere os dados do lado do servidor, use method="post". Esta dica não é específica para Django; é uma boa prática de desenvolvimento web em geral.
+
+        Como estamos criando um formulário POST (que pode ter o efeito de modificar os dados), precisamos nos preocupar com as falsificações de solicitação entre sites. Felizmente, você não precisa se preocupar muito, porque o Django vem com um sistema útil para proteção contra isso. Resumindo, todos os formulários POST direcionados a URLs internas devem usar a tag de modelo {% csrf_token %} dentro do form.
+
+        Variáveis e filtros: {{}}
+            Dicionário são acessados por pontos, objetct.name
+        Etiquetas/Tags: {% %}
+            autoescape
+                ?
+            block
+                Define blocos que podem ser preenchidos
+            comment
+                Ignora tudo entre as tags
+                Pode receber uma descrição {% comment 'Descrição opcional' %}
+                Tags comment não pode ser aninhada
+            csrf_token
+                Para proteção CSRF
+            cycle
+                Fica ciclando entre seus argumentos
+            debug
+            extends
+                sinaliza que extende de algum modelo
+            filter
+                Filtra conteúdo do bloco
+            firstof
+                Gera a primeira variável de argumento que não é “falsa”
+            for
+                faz um loop
+            for...empty
+                A fortag pode receber uma cláusula opcional cujo texto é exibido se o array fornecido estiver vazio ou não puder ser encontrado
+            if
+                faz condicional
+            ifchanged
+                Verifique se um valor foi alterado desde a última iteração de um loop.
+            include
+                Carrega um modelo e o renderiza com o contexto atual.
+            load
+                Carrega um conjunto de tags de modelo personalizado.
+            lorem
+                Exibe o texto latino “lorem ipsum” aleatório. Isso é útil para fornecer dados de amostra em modelos.
+            now 
+                Exibe a data e/ou hora atual, usando um formato de acordo com a string fornecida.
+            regroup
+                Reagrupa uma lista de objetos semelhantes por um atributo comum.
+            resetcycle
+                Redefine um ciclo anterior para que ele reinicie de seu primeiro item em seu próximo encontro.
+            spacelees
+                Remove espaços em branco entre tags HTML.
+            templatetag
+                Gera um dos caracteres de sintaxe usados ​​para compor tags de modelo.
+            url
+                Retorna uma referência de caminho absoluto (uma URL sem o nome de domínio) correspondente a uma determinada exibição e parâmetros opcionais.
+            verbatim
+                Impede que o mecanismo de modelo renderize o conteúdo dessa tag de bloco.
+            withratio
+                Para criar gráficos de barras e outros, essa tag calcula a proporção de um determinado valor para um valor máximo e, em seguida, aplica essa proporção a uma constante
+            with
+                Armazena em cache uma variável complexa com um nome mais simples
+        Comentários: {# #}
+    Nomes de URL de namespace
+        Como o Django diferencia os nomes de URL entre eles? Por exemplo, o APPNAME aplicativo tem uma FUNCAO exibição e, portanto, um aplicativo no mesmo projeto que é para um blog. Como fazer para que o Django saiba qual visualização de aplicativo criar para uma url ao usar a tag de modelo?
+            A resposta é adicionar namespaces ao seu URLconf. No polls/urls.py arquivo, vá em frente e adicione um 'app_name' para definir o namespace do aplicativo:
+
+Sumário
+    https://docs.djangoproject.com/en/4.2/contents/
+
+Instalar
+    https://docs.djangoproject.com/en/4.2/topics/install/
+
+Compatibilidade (Python x Django)
+    https://docs.djangoproject.com/en/4.2/faq/install/  #faq-python-version-support
+
+Bancos de dados
+    https://docs.djangoproject.com/en/4.2/topics/install/#database-installation
+    https://docs.djangoproject.com/pt-br/4.2/ref/settings/#std-setting-DATABASES
+    https://docs.djangoproject.com/en/4.2/ref/databases/#postgresql-notes
+
+Time zone
+    https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-TIME_ZONE
+    https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+Apps
+    O django possui duas partes, o projeto e os aplicativos cada aplicativo, precisa ser 'instalado' no django, para isso, referencie NameappConfig dentro INSTALLED_APPS nas settings.py do projeto que está em projeto/projeto/settings.py 
+
+Obervações
+    - Não utilize esse servidor em produçao
+    - Apesar do django reiniciar automáticamente o servidor quando o código é atualizado, ele não faz isso para novos arquivos
+    - Usar " ou ', na documentação está usando ", já no projeto base é ', então utilize '
+
+Admin
+    python manage.py createsuperuser
+        Para utilizar o django admin, primeiro é preciso criar m super usuário/administrador root/root
+    admin.site.register(Alimento)
+        Para que você possa gerenciar sua models pelo admin, é preciso permitir que o admin as gerencie
+
+Tradução
+    https://docs.djangoproject.com/en/4.2/topics/i18n/translation/
+    https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-LANGUAGE_CODE
+
+
+Testes
+    Alguns programadores seguem uma disciplina chamada “ desenvolvimento orientado a testes ”; eles realmente escrevem seus testes antes de escrever seu código. Isso pode parecer contra-intuitivo, mas na verdade é semelhante ao que a maioria das pessoas costuma fazer: descrevem um problema e, em seguida, criam algum código para resolvê-lo
+        um separado TestClasspara cada modelo ou vista
+        um método de teste separado para cada conjunto de condições que você deseja testar
+        nomes de métodos de teste que descrevem sua função
+    Por exemplo, embora nossos testes aqui tenham coberto parte da lógica interna de um modelo e a maneira como nossas exibições publicam informações, você pode usar uma estrutura “in-browser” como o Selenium para testar a maneira como seu HTML realmente é renderizado em um navegador . Essas ferramentas permitem que você verifique não apenas o comportamento do seu código Django, mas também, por exemplo, do seu JavaScript. É incrível ver os testes iniciarem um navegador e começarem a interagir com o seu site, como se um ser humano o estivesse dirigindo! O Django inclui LiveServerTestCase para facilitar a integração com ferramentas como o Selenium.
+    Se você tiver um aplicativo complexo, poderá executar testes automaticamente com cada confirmação para fins de integração contínua , de modo que o controle de qualidade seja - pelo menos parcialmente - automatizado.
+    Uma boa maneira de detectar partes não testadas de seu aplicativo é verificar a cobertura do código. Isso também ajuda a identificar códigos frágeis ou até mortos. Se você não pode testar um pedaço de código, isso geralmente significa que o código deve ser refatorado ou removido. A cobertura ajudará a identificar o código morto. Consulte Integração com coverage.py para obter detalhes.
+    The {% static %} template tag is not available for use in static files which aren’t generated by Django, like your stylesheet. You should always use relative paths to link your static files between each other, because then you can change STATIC_URL (used by the static template tag to generate its URLs) without having to modify a bunch of paths in your static files as well.
+
+Parei em
+    https://docs.djangoproject.com/en/4.2/intro/tutorial03/
+
+
+
+Futuramente:
+    Nomenclatura URL: https://docs.djangoproject.com/pt-br/4.2/topics/http/urls/#naming-url-patterns
+
