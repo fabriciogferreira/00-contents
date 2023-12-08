@@ -225,8 +225,5 @@ Testes
 Parei em
     https://docs.djangoproject.com/en/4.2/intro/tutorial03/
 
-
-
 Futuramente:
     Nomenclatura URL: https://docs.djangoproject.com/pt-br/4.2/topics/http/urls/#naming-url-patterns
-

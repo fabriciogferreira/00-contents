@@ -17,6 +17,7 @@ git log: mostra o histórico de alterações gravadas no repositório
 git remote add origin https://github.com/fabriciogferreira/01-exercicios.git: aponta/liga um repositório local a um repositório remoto
 git push origin main/master/other: envia as alterações para o repositório remoto
 git clone https://github.com/fabriciogferreira/01-exercicios: faz um clone dos arquivos/pastas do caminho que está especificado na URL
+https://github.com/fabriciogferreira/enter-show.git
 git add .: adiciona no stage todas as alterações feitas nos arquivos do repositório
 git commit -a -m "mensagem": adiciona as alterações ao stage e commita de uma vez só, ao invés de precisar de dois comando. Obs: quando um novo arquivo é criado, se você quiser que ele seja versionado, você precisa rastrea-ló (git add ...) 
 git commit -am "mensagem": mesma coisa que o de cima, só que simplificado

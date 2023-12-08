@@ -1,0 +1,176 @@
+
+
+Coponentização: Os aplicativos React são feitos de componentes . Um componente é uma parte da UI (interface do usuário) que possui lógica e aparência próprias. Um componente pode ser tão pequeno quanto um botão ou tão grande quanto uma página inteira.
+
+Exemplos:
+Componente:
+function MyButton() {
+  return (
+    <button>I'm a button</button>
+  );
+}
+
+Tela
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}
+
+Nomenclatura: 
+Componente: CamelCase.
+Tag's HTML: lowercase
+
+As export default palavras-chave especificam o componente principal do arquivo.
+
+A sintaxe de marcação que você viu acima é chamada JSX. Seu componente também não pode retornar várias tags JSX. Você precisa envolvê-los em um pai compartilhado, como um wrapper <div>...</div>vazio :<>...</>
+
+Estilos:
+No React, você especifica uma classe CSS com className. Então você escreve as regras CSS para ele em um arquivo CSS separado:
+
+Exibindo dados:
+JSX permite colocar marcação em JavaScript. As chaves permitem que você “volte” para o JavaScript para que você possa incorporar alguma variável do seu código e exibi-la ao usuário.
+
+return (
+  <h1> {user.name} </h1>
+);
+
+Escape:
+Você também pode “escapar para JavaScript” a partir de atributos JSX, mas é necessário usar chaves em vez de aspas.
+
+return (
+  <img
+  className="avatar"
+  src={user.imageUrl}
+  alt={'Photo of ' + user.name}
+  style={{
+    width: user.imageSize,
+    height: user.imageSize
+  }}
+  />
+);
+
+No exemplo acima, style={{}}não é uma sintaxe especial, mas um {}objeto regular dentro das style={ }chaves JSX.
+
+Rederização condicional:
+if(){}else{} ou {if ? () : ()}
+
+{isLoggedIn && <AdminPanel />}
+
+Rederização de listas:
+
+const products = [
+  { title: 'Cabbage', id: 1 },
+  { title: 'Garlic', id: 2 },
+  { title: 'Apple', id: 3 },
+];
+
+map:
+const listItems = products.map(product =>
+  <li key={product.id}>
+    {product.title}
+  </li>
+);
+
+return (
+  <ul>{listItems}</ul>
+);
+
+Para cada item de uma lista, você deve passar uma string ou um número que identifique exclusivamente aquele item entre seus irmãos. Normalmente, uma chave deve vir dos seus dados, como um ID do banco de dados. O React usa suas chaves para saber o que aconteceu se você inserir, excluir ou reordenar os itens posteriormente.
+
+Respondendo a eventos:
+function MyButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+
+Observe como onClick={handleClick}não tem parênteses no final! Não chame a função do manipulador de eventos: você só precisa transmiti-la.
+
+Atualizando a tela?
+Freqüentemente, você desejará que seu componente “lembre” algumas informações e as exiba. Para fazer isso, adicione estado ao seu componente.
+
+Primeiro, importe useStatedo React:
+
+Agora você pode declarar uma variável de estado dentro do seu componente:
+
+Você obterá duas coisas useState: o estado atual ( count ) e a função que permite atualizá-lo ( setCount ).
+Convenção: [something, setSomething]
+A primeira vez que o botão for exibido count será 0 porque você passou 0 para useState(). Quando você quiser mudar de estado, chame setCount() e passe o novo valor para ele. 
+
+import { useState } from 'react';
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+Se você renderizar o mesmo componente várias vezes, cada um obterá seu próprio estado.
+
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
+
+Usandos Ganchos (Hooks)
+Funções que começam com usesão chamadas de Hooks . useStateé um gancho integrado fornecido pelo React. Você também pode escrever seus próprios Hooks combinando os existentes.
+
+Os ganchos são mais restritivos que outras funções. Você só pode chamar Hooks no topo de seus componentes (ou outros Hooks). Se quiser usar useState em uma condição ou loop, extraia um novo componente e coloque-o lá.????
+
+Compartilhando dados entre componentes
+No entanto, muitas vezes você precisará de componentes para compartilhar dados e sempre atualizar juntos .
+
+Para fazer com que ambos MyButtonos componentes sejam exibidos da mesma forma counte atualizados juntos, você precisa mover o estado dos botões individuais “para cima” até o componente mais próximo que contém todos eles.
+
+Primeiro, mova o estado de MyButtonpara MyApp:
+export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      /*Em seguida, passe o estado de MyAppto each MyButton, junto com o manipulador de cliques compartilhado. As informações que você transmite dessa forma são chamadas de props. */
+      <MyButton count={count} onClick={handleClick}/>
+      <MyButton count={count} onClick={handleClick}/>
+    </div>
+  );
+}
+
+Finalmente, mude MyButtonpara ler os adereços que você passou de seu componente pai:
+function MyButton({count, onClick}) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+Isso é chamado de “elevação do estado”. Ao mover o estado para cima, você o compartilhou entre os componentes.
